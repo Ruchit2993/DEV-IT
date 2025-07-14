@@ -1,0 +1,17 @@
+.hero-section {
+  background: #e6f4fa;
+}
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.btn-primary {
+  background-color: #2d9cdb;
+  border: none;
+}
+.bg-light {
+  background-color: #f9fafc !important;
+}
+.bg-dark {
+  background-color: #222 !important;
+}

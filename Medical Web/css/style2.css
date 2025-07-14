@@ -1,0 +1,218 @@
+
+
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    /* .container{
+        width: 100%;
+        height: 700px;
+    } */
+
+    .main-page{
+        background-image: url('../images/bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .left-menu ul li{
+        display: inline;
+        font-size: 20px;
+        padding: 7px 7px;
+
+    }
+
+    .left-menu ul{
+        padding: 7px;
+    }
+
+    .left-menu{
+        display: inline-block;
+    }
+
+    .right-menu{
+        display: inline-block;
+        font-size: 20px;
+        padding-top: 7px;
+        /* margin-left: 15px; */
+    }
+
+    .right-menu ul li{
+        list-style: none;
+        color: #23A6F0;
+    }
+
+    .main-second{
+
+    }
+
+    .main-second .box{
+        height: 400px;
+        width: 500px;
+        position: absolute;
+        top: 230px;
+        left: 200px;
+    }
+
+    .main-second .box .welcome p{
+        color: #23A6F0;
+        font-weight: 700;
+    }
+
+
+    .main-second .box .heading h1{
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .main-second .box .content{
+        height: 90px;
+        width: 450px;
+        /* border: 1px solid ; */
+    }
+
+    .main-second .box .content p{
+        font-size: 20px;
+        color: #737373;
+    }
+
+
+    .main-second-left{
+        position: relative;
+        /* border: 1px solid; */
+        width: 100%;
+    }
+
+    .graph-single{
+        position: absolute;
+        /* top: -150px; */
+        /* border: 1px solid; */
+        bottom: 0px;
+        left: 40px;
+    }
+
+    .graph-2019{
+        position: absolute;
+        bottom: 10px;
+        /* border: 1px solid; */
+        top: 80px;
+        /* right: 0px; */
+    }
+
+
+    .second-page{
+        margin-top: 150px;
+        height: 800px;
+    }
+
+    .second-page .heading{
+        /* border: 1px  solid; */
+        width: 35%;
+        margin-top: 100px;
+        margin-left: 80px;
+    }
+
+    .second-page .heading .heading-first{
+        color: #23A6F0;
+        font-weight: 600;
+    }
+
+    .second-page .heading .heading-main h1{
+        font-weight: 600;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+
+    .activities{
+        /* display: inline; */
+        display: flex;
+        gap: 50px;
+        margin-left: 80px;
+        margin-top: 50px;
+    }
+
+    .card{
+        padding: 20px;
+        margin-left: 0px;
+        width: 200px;
+        background-color: #FFFFFF;
+        box-shadow: 10px;
+    }
+
+    .card img{
+        height: 80px;
+        width: 80px;
+        margin-left: 10px;
+        margin-bottom: 15px;
+    }
+
+    .card .line{
+        height: 2px;
+        width: 50px;
+        border: 2px solid red;
+        margin-bottom: 30px;
+    }
+
+
+    .third-page{
+        /* background-color: #FFDCD1; */
+        /* margin-top: 0px;
+        margin-bottom: 30px; */
+        position: relative;
+    }
+
+    .third-page .left{
+        height: 280px;
+        width: 500px;
+        position: absolute;
+        /* border: 1px solid; */
+        top: 200px;
+        left: 300px;
+    }
+
+    .third-page .left .line{
+        height: 4px;
+        width: 100px;
+        border: 3px solid red;
+    }
+
+    .third-page .left .heading{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        /* font-weight:bolder; */
+    }
+
+    .third-page .left .heading h1{
+        font-weight: bold;
+    }
+
+    .third-page .left .content{
+        color: #737373;
+    }
+
+    .third-page .left .link{
+        color: #23A6F0;
+        font-weight: bold;
+    }
+
+    .heart-circle {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px; /* Adjust size as needed */
+                height: 50px; /* Adjust size as needed */
+                background-color: #007bff; /* Bootstrap's info color */
+                border-radius: 50%; /* Makes it a circle */
+                color: white; /* Heart color */
+            }
+a {
+    text-decoration: none; /* Removes underlines */
+}
+a::before, a::after {
+    content: none; /* Removes any pseudo-element content */
+}

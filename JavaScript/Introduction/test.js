@@ -1,0 +1,53 @@
+// let a = 0.1
+// let b = 0.2
+
+
+// let c ="3"
+// let d = "3"
+// console.log("3"+3 -"2" -4);
+// console.log("a + b:", a + b);
+
+
+// //  "3"+3 -"2" -4
+
+// console.log([ 1,2,3] + [4,5,6])
+// // [ 1,2,3] 
+// // [4,5,6]
+
+let stu ={
+    age : 25,
+    name: "Ruchit",
+    city: "Ahmedabad",
+    state: "Gujarat"
+}
+
+// console.log(stu.city);
+
+
+// let jsonStr = JSON.stringify(stu);  
+// console.log("JSON String:", jsonStr);
+
+// let json2 = JSON.parse(jsonStr);
+// console.log("Parsed JSON:", json2);
+
+
+let num = 5;
+let result = ['Even', 'Odd'][num & 1];
+console.log(result);
+
+
+function countCharacters(str) {
+    const obj = {};
+
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+
+        if (obj[char]) {
+            obj[char]++;
+        } else {
+            obj[char] = 1;
+        }
+    }
+
+    return obj;
+}
