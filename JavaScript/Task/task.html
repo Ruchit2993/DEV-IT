@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: gray">
+    <div>
+      <button id="btnn" style="height: 20px; width: auto">Click me</button>
+      <input type="text" id="txt" />
+    </div>
+    <script>
+         const btn = document
+        .getElementById("btnn")
+        .addEventListener("mouseover", function () {
+            console.log("Inside of the button");
+        });
+        const btn1 = document
+        .getElementById("btnn")
+        .addEventListener("mouseout", function () {
+            console.log("You got out of the button");
+        });
+        const btn2 = document
+        .getElementById("txt")
+        .addEventListener("keypress", function () {
+            console.log("Key pressed");
+        }); 
+
+    </script>
+  </body>
+</html>

@@ -31,6 +31,11 @@ let stu ={
 // console.log("Parsed JSON:", json2);
 
 
+// 8 4 2 1
+// 0 0 1 1 =3
+// 0 1 0 1 =5
+// 0 1 1 0 =6
+
 let num = 5;
 let result = ['Even', 'Odd'][num & 1];
 console.log(result);
