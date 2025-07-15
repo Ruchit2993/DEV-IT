@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="history.back()">Go Back</button>
+    <button onclick="changeHeading()">Click Me</button>
+
+    <script>
+console.log("8. Browser object interactions:");
+console.log("a. Display an alert with the current screen width and height using screen");
+
+alert(`Screen width: ${screen.width}, height: ${screen.height}`);
+
+console.log("b. Log the browser’s user agent using navigator");
+
+console.log(navigator.userAgent);
+
+console.log("c. Check and display if the browser is online");
+
+alert(navigator.onLine ? "Online" : "Offline");
+
+console.log("d. Create a button that takes the user back using history.back()");
+
+// <button onclick="history.back()">Go Back</button>
+
+
+console.log("9. DOM Manipulation:");
+console.log("a. Add a <h1> element to the page with the text \"Welcome, Intern!\" using the document object");
+
+  const heading = document.createElement("h1");
+  heading.id = "welcome";
+  heading.innerText = "Welcome, Intern!";
+  document.body.appendChild(heading);
+
+console.log("b. Create a button that changes the text of this heading to \"You clicked the button!\" when clicked");
+
+
+  function changeHeading() {
+    document.getElementById("welcome").innerText = "You clicked the button!";
+  }
+
+
+
+</script>
+</body>
+</html>

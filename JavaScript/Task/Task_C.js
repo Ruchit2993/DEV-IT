@@ -58,6 +58,7 @@ const student_1 = [
   }
 ];
 
+console.log(student_1[0].getFullName()); 
 // Task 4
 
 const student_2 = [
@@ -68,12 +69,18 @@ const student_2 = [
     studentId: "S12345",
     grade: "A",
     courses: ["Math", "Science", "History"],
-    isActive: true,
+    active: true,
     getFullName: function() {
       return `${this.firstName} ${this.lastName}`;
     }
   },
 ];
+
+const isActiveStudent = (student) => {
+  return student.active ? `${student.getFullName()} is an active student.` : `${student.getFullName()} is not an active student.`;
+};
+
+console.log(isActiveStudent(student_2[0]));
 
 
 // Task 5
