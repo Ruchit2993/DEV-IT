@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> College Admission Form</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 450px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            border: #fff 1px solid;
+            padding: 30px 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: brown;
+            margin: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 10px;
+            color: black;
+        }
+
+        input[type="text"],
+        input[type="number"],
+
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid red;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: rgb(209, 105, 105);
+            color: black;
+            border: rgb(255, 70, 70);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 17px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2> Collage Admission From</h2>
+        <form action="" onsubmit="return formValidation()" name="form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" >
+
+            <label for="age">Age </label>
+            <input type="number" id="age" name="age" placeholder="Enter your Age" >
+
+            <button type="subit">Submit</button>
+
+        </form>
+    </div>
+    <script>
+        function formValidation(){
+            e.preventDefault()
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            
+            const nameRegex = /^[A-Za-z]+.{3,}$/;
+            
+            if (name === ""|| !nameRegex.test(name)){
+                alert("Check your name It's Empty or not correct");
+                return false;
+            }
+
+            if (age === "" || 18 < age > 60){
+                alert("Check your Age It's Empty or not correct");
+                return false;
+            }
+
+            alert("Form  Submitted");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

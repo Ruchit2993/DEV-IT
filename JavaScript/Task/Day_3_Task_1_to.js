@@ -8,7 +8,7 @@ view.setInt32(0, 100);
 let value = view.getInt32(0);
 console.log(`The 32-bit integer value is: ${value}`);
 
-//  Task 2: Create 5 diffrent types of events ( except on click ) each with example
+//  Task 2: Create 3 diffrent types of events ( except on click ) each with example
 //  in the Task.html
 
 console.log("Task 3: convert the following object into a json string and log it in the console : {name: \"Alice\", age: 25, isAdmin: false}");
@@ -25,11 +25,11 @@ console.log(jsObject);
 
 console.log("Task 5: Use Number is integer() to check wether a given value is integer");
 
-console.log(Number.isInteger(42));      // 42 is an integer
-console.log(Number.isInteger(3.14));    // 3.14 is not an integer
-console.log(Number.isInteger(-10));     // -10 is an integer
-console.log(Number.isInteger("123"));   // 123 is not an integer
-console.log(Number.isInteger(0));       // 0 is an integer
+console.log(Number.isInteger(42));     
+console.log(Number.isInteger(3.14));    
+console.log(Number.isInteger(-10));     
+console.log(Number.isInteger("123"));  
+console.log(Number.isInteger(0));      
 
 console.log("Task 6: Write a regular Expression to check if a string contains only letters(no numbers or special characters)");
 

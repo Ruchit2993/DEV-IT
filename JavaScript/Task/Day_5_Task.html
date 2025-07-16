@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Introduction</title>
+</head>
+<body>
+    <form action="" onsubmit="return formValidation()" name="form">
+        Name <input type="text" id="name" name="name"/><br/><br/>
+        E-mail <input type="email" id="email" name="email"/> <br/><br/>
+        Password <input type="password" id="password" name="password"/><br/><br/>
+        Confirm Password <input type="password" id="confirmPassword" name="confirmPassword"/><br/><br/>
+        Hobbies:
+        <input type="checkbox" id="hobby1" name="hobby" value="Reading"/>
+        <label for="hobby1">Reading</label>
+        <input type="checkbox" id="hobby2" name="hobby" value="Traveling"/>
+        <label for="hobby2">Traveling</label>
+        <input type="checkbox" id="hobby3" name="hobby" value="Cooking"/>
+        <label for="hobby3">Cooking</label>
+        <input type="checkbox" id="hobby4" name="hobby" value="Drawing"/>
+        <label for="hobby4">Drawing</label>
+        <input type="checkbox" id="hobby5" name="hobby" value="Singing"/>
+        <label for="hobby5">Singing</label>
+        <br/><br/>
+        <button type="submit"> Submit </button>
+
+
+
+    </form>
+
+    <div id="div1"><b>This is the div 1</b></div>
+    <div>This is the div 2</div>
+    <div>This is the div 3</div>
+
+    <script>
+
+    let innerhtml = document.getElementById("div1").innerHTML
+    console.log("innerhtml",innerhtml)
+    
+    let innertext = document.getElementById("div1").innerText
+    console.log("innertext",innertext)
+
+    function formValidation(){
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        const nameRegex = /^[A-Za-z]+$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const passwordRegex =  /^.{6,}$/;
+
+        if (name === ""|| !nameRegex.test(name)){
+            alert("Check your name It's Empty or not correct");
+            return false;
+        }
+
+        if (email === ""|| !emailRegex.test(email)){
+            alert("Check your email It's Empty or not correct");
+            return false;
+        }
+
+        if (password === ""|| !passwordRegex.test(password)){
+            alert("Check your password It's Empty or not correct");
+            return false;
+        }
+        if (confirmPassword === "" || confirmPassword !== password) {
+            alert("Check your confirm password It's Empty or not correct");
+            return false;
+        }
+        let selectedHobbies = [];
+        let hobbies = document.getElementsByName("hobby");
+        for (let i = 0; i < hobbies.length; i++) {
+            if (hobbies[i].checked) {
+                selectedHobbies.push(hobbies[i].value);
+            }
+        }
+        alert("Selected Hobbies: " + selectedHobbies.join(", "));
+        alert("From Submited");
+        return true;
+    }
+
+    let div = document.getElementsByTagName("div")
+    for (let i=0; i<div.length; i++){
+        div[i].style.backgroundColor = "yellow";
+    }
+
+    
+
+    </script>
+</body>
+</html>

@@ -18,11 +18,11 @@ console.log(obj.name);  // Output: Intern
 
 // 4. How can you detect if the user is online using JavaScript?
 
-// if (navigator.onLine) {
-//   console.log("User is online");
-// } else {
-//   console.log("User is offline");
-// }
+if (navigator.onLine) {
+  console.log("User is online");
+} else {
+  console.log("User is offline");
+}
 
 // 5. Explain how the screen object differs from the window object.
 
@@ -44,44 +44,86 @@ const user = {
   [id]: 23,
 };
 // console.log(user[id]);
-// console.log(user)
+console.log(user)
+console.log(user[id]); // Output: 23
 user["userId"] = 24;
 // console.log(user[id]);
 console.log(user);
 
-// console.log("8. Browser object interactions:");
-// console.log("a. Display an alert with the current screen width and height using screen");
-
-// // alert(`Screen width: ${screen.width}, height: ${screen.height}`);
-
-// console.log("b. Log the browser’s user agent using navigator")
-// console.log(navigator.userAgent);
-
-// console.log("c. Check and display if the browser is online");
-
-// alert(navigator.onLine ? "Online" : "Offline");
-
-// console.log("d. Create a button that takes the user back using history.back()");
-
-// <button onclick="history.back()">Go Back</button>
 
 
-// console.log("9. DOM Manipulation:");
-// console.log("a. Add a <h1> element to the page with the text \"Welcome, Intern!\" using the document object");
+// Q1 Reflact Object in JavaScript 
 
-// <script>
-//   const heading = document.createElement("h1");
-//   heading.id = "welcome";
-//   heading.innerText = "Welcome, Intern!";
-//   document.body.appendChild(heading);
-// </script>
+// console.log(Reflect);
 
-// console.log("b. Create a button that changes the text of this heading to \"You clicked the button!\" when clicked");
+// | Method                                        | Purpose                                    |
+// | --------------------------------------------- | ------------------------------------------ |
+// | `Reflect.get(target, propertyKey)`            | Like `target[propertyKey]`                 |
+// | `Reflect.set(target, propertyKey, value)`     | Like `target[propertyKey] = value`         |
+// | `Reflect.has(target, propertyKey)`            | Like `propertyKey in target`               |
+// | `Reflect.deleteProperty(target, propertyKey)` | Like `delete target[propertyKey]`          |
+// | `Reflect.ownKeys(target)`                     | Returns all keys (`Object.keys` + symbols) |
+// | `Reflect.construct(target, args)`             | Like `new target(...args)`                 |
+// | `Reflect.apply(targetFunc, thisArg, args)`    | Like `Function.prototype.apply`            |
 
-// <button onclick="changeHeading()">Click Me</button>
+// When would you use a Symbol instead of a regular string as an object key?
 
-// <script>
-//   function changeHeading() {
-//     document.getElementById("welcome").innerText = "You clicked the button!";
-//   }
-// </script>
+// | Feature                | String Keys | Symbol Keys                       |
+// | ---------------------- | ----------- | --------------------------------- |
+// | Globally visible       |   Yes       |    No (unless using `Symbol.for`) |
+// | Unique by default      |   No        |    Yes                            |
+// | Enumerable (in loops)  |   Yes       |    No (by default)                |
+// | Risk of key collision  |   Yes       |    Avoided                        |
+// | Used for meta-behavior |   Rarely    |    Common                         |
+
+// 3. What is the difference between window.location and document.location?
+
+// | Feature                  | `window.location`   | `document.location`                |
+// | ------------------------ | ------------------- | ---------------------------------- |
+// |   Standard & recommended | Yes                 |   No (deprecated in some browsers) |
+// |    Accesses the URL info | Yes                 | Yes (same object)                  |
+// |    Deprecated            | No                  | Yes                                |
+// |    Availability          | All modern browsers | Might throw warnings               |
+
+
+// window.location is part of the Window interface.
+
+// document.location exists for backward compatibility and historical reasons.
+
+// Both refer to the same Location object, which represents the current URL and provides methods like:
+
+// assign()
+// replace()
+// reload()
+
+// and properties like href, host, pathname, search, hash, etc.
+
+// window.innerWidth;   // Viewport width (in pixels)
+// window.innerHeight;  // Viewport height
+// window.location.href // Current URL
+// window.open()        // Open a new tab/window
+
+// screen.width;        // Total screen width (e.g., 1920)
+// screen.height;       // Total screen height
+// screen.availWidth;   // Width excluding OS taskbar/docks
+// screen.availHeight;  // Height excluding taskbar
+// screen.colorDepth;   // Bit depth per pixel (e.g., 24)
+
+
+//  4. How can you detect if the user is online using JavaScript?
+
+// navigator.onLine ?
+//     console.log("User is online")
+//     :
+//     console.log("User is offline")
+
+// 5. Explain how the screen object differs from the window object.
+
+
+// | Aspect                | `window`                                                | `screen`                                                  |
+// | --------------------- | ------------------------------------------------------- | --------------------------------------------------------- |
+// | **Represents**        | The **browser window/tab** (viewport + controls)        | The **entire physical screen** of the user's device       |
+// | **Purpose**           | Used to control and interact with the **browser**       | Used to get **device display properties**                 |
+// | **Common Properties** | `window.innerWidth`, `window.location`, `window.open()` | `screen.width`, `screen.availHeight`, `screen.colorDepth` |
+// | **Scope**             | Refers to the **visible part of the webpage**           | Refers to the **whole monitor or device screen**          |
+// | **Used For**          | Managing browser behavior                               | Detecting screen size, color depth, etc.                  |
