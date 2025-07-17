@@ -1,10 +1,10 @@
-// 1. What is the purpose of the Reflect object in JavaScript?
+console.log("1. What is the purpose of the Reflect object in JavaScript?");
 
 const obj = {};
 Reflect.set(obj, 'name', 'Intern');
 console.log(obj.name);  // Output: Intern
 
-// 2. When would you use a Symbol instead of a regular string as an object key?
+// console.log("2. When would you use a Symbol instead of a regular string as an object key?");
 
 // const id = Symbol('userID');
 // const user = {
@@ -16,7 +16,7 @@ console.log(obj.name);  // Output: Intern
 
 // console.log(window.location.href);  // Get current URL
 
-// 4. How can you detect if the user is online using JavaScript?
+console.log("4. How can you detect if the user is online using JavaScript?");
 
 if (navigator.onLine) {
   console.log("User is online");

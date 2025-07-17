@@ -63,7 +63,7 @@
 <body>
     <div class="container">
         <h2> Collage Admission From</h2>
-        <form action="" onsubmit="return formValidation()" name="form">
+        <form action="" onsubmit="return formValidation(event)" name="form">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" >
 
@@ -75,7 +75,7 @@
         </form>
     </div>
     <script>
-        function formValidation(){
+        function formValidation(e){
             e.preventDefault()
             let name = document.getElementById("name").value;
             let age = document.getElementById("age").value;
@@ -87,7 +87,7 @@
                 return false;
             }
 
-            if (age === "" || 18 < age > 60){
+            if (age === "" || isNaN(age) || age < 18 || age > 60){
                 alert("Check your Age It's Empty or not correct");
                 return false;
             }

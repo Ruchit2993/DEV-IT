@@ -4,12 +4,26 @@
     <title>JavaScript Introduction</title>
 </head>
 <body>
-    <form action="" onsubmit="return formValidation()" name="form">
-        Name <input type="text" id="name" name="name"/><br/><br/>
-        E-mail <input type="email" id="email" name="email"/> <br/><br/>
-        Password <input type="password" id="password" name="password"/><br/><br/>
-        Confirm Password <input type="password" id="confirmPassword" name="confirmPassword"/><br/><br/>
-        Hobbies:
+    <form action="" onsubmit="return formValidation(event)" name="form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" onblur="return formValidation(event)"/><br/><br/>
+        <span id="spanname" style="color: red;"></span>
+        <label for="email">E-mail</label>
+        <span>
+            <input type="email" id="email" name="email"/> <br/><br/>
+        </span>
+
+        <label for="password">Password</label>
+        <span>
+            <input type="password" id="password" name="password"/><br/><br/>
+        </span>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <span>
+            <input type="password" id="confirmPassword" name="confirmPassword"/><br/><br/>
+        </span>
+
+        <label for="hobbies">Hobbies:</label>
         <input type="checkbox" id="hobby1" name="hobby" value="Reading"/>
         <label for="hobby1">Reading</label>
         <input type="checkbox" id="hobby2" name="hobby" value="Traveling"/>
@@ -39,21 +53,27 @@
     let innertext = document.getElementById("div1").innerText
     console.log("innertext",innertext)
 
-    function formValidation(){
-
+    function formValidation(e){
+        e.preventDefault();
         let name = document.getElementById("name").value;
+        let spanname = document.getElementById("spanname").innerText;
+        spanname.innerText = "";
+        
+        const nameRegex = /^[A-Za-z]+$/;
+        if (name === ""|| !nameRegex.test(name)){
+            spanname.innerText="Check your name It's Empty or not correct";
+            console.log("Check your name It's Empty or not correct");
+            
+            // alert("Check your name It's Empty or not correct");
+            return false;
+        }
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
         let confirmPassword = document.getElementById("confirmPassword").value;
 
-        const nameRegex = /^[A-Za-z]+$/;
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         const passwordRegex =  /^.{6,}$/;
 
-        if (name === ""|| !nameRegex.test(name)){
-            alert("Check your name It's Empty or not correct");
-            return false;
-        }
 
         if (email === ""|| !emailRegex.test(email)){
             alert("Check your email It's Empty or not correct");
