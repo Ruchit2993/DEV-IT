@@ -55,6 +55,7 @@
 
     function formValidation(e){
         e.preventDefault();
+        console.log(e);
         let name = document.getElementById("name").value;
         let spanname = document.getElementById("spanname").innerText;
         spanname.innerText = "";
@@ -64,7 +65,7 @@
             spanname.innerText="Check your name It's Empty or not correct";
             console.log("Check your name It's Empty or not correct");
             
-            // alert("Check your name It's Empty or not correct");
+            alert("Check your name It's Empty or not correct");
             return false;
         }
         let email = document.getElementById("email").value;

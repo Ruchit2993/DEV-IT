@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .parentdiv {
+            width: 700px;
+            height: 700px;
+            background-color: lightblue;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .childdiv {
+            width: 500px;
+            height: 500px;
+            background-color: rgb(6, 63, 81);
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .subchilddiv {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(78, 18, 219);
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .subsubchilddiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(188, 151, 14);
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="parentDiv" class="parentdiv">
+        <div id="childDiv" class="childdiv">
+            <div id="subChildDiv" class="subchilddiv">
+                <div id="subSubChildDiv" class="subsubchilddiv">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const div0 = document.getElementById('parentDiv');
+        div0.addEventListener('click', function (event) {
+            // alert('parentDiv clicked!');           
+            console.log(event.target.id);
+            alert(event.target.id + ' Clicked');
+             
+        });
+
+        // const div1 = document.getElementById('childDiv');
+        // div1.addEventListener('click', function (event) {
+        //     event.stopPropagation(); // Prevent bubbling to parentDiv
+        //     alert('childDiv clicked!');
+        // });
+
+        // const div2 = document.getElementById('subChildDiv');
+        // div2.addEventListener('click', function (event) {
+        //     event.stopPropagation(); // Prevent bubbling to childDiv
+        //     alert('subChildDiv clicked!');
+        // });
+
+        // const div3 = document.getElementById('subSubChildDiv');
+        // div3.addEventListener('click', function (event) {
+        //     event.stopPropagation(); // Prevent bubbling to subChildDiv
+        //     alert('subSubChildDiv clicked!');
+        // });
+    </script>
+
+</body>
+
+</html>

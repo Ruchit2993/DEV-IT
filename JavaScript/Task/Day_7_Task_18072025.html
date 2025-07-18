@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script> 
+    // localStorage.setItem('key', 'value');
+    // localStorage.setItem('username','dev');
+    // const asd = localStorage.getItem('key');
+    // console.log(asd);
+    // localStorage.removeItem('key');
+    // console.log(localStorage.getItem('key'));
+
+    // document.cookie ="username = DEV IT";
+    // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 11:00:00 UTC;";
+    // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 12:01:00 UTC";
+    
+    // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 12:02:00 UTC";
+    document.cookie ="username = john doe; max-age=10";
+    // delete cookie function
+    function deleteCookie(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
+    
+    // document.cookie ="username = doe";
+    // document.cookie = "username=John Doe;  path=/";
+    // document.cookie = "authToken=123;secure";
+    // document.cookie = "theme=dark";
+    
+
+    // try{
+// wraps the code that might cause an error
+    // }catch(error){
+// handels the error if one occurs
+    // }finally{
+// always runs, wether an error occured or not
+    // }
+
+    // throw  // ti throws new exception
+
+    try{
+        let age= 15;
+        if(age < 18){
+            throw new Error("You must be 18 or older.");
+        } else {
+            console.log("Age is granted");
+        }
+    }catch(err){
+        console.log("Error: " , err.message);
+    }finally{
+        console.log("Age verification complete.");
+    }
+
+
+    </script>
+</body>
+</html>

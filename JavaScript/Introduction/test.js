@@ -14,12 +14,12 @@
 // // [ 1,2,3] 
 // // [4,5,6]
 
-let stu ={
-    age : 25,
-    name: "Ruchit",
-    city: "Ahmedabad",
-    state: "Gujarat"
-}
+// let stu ={
+//     age : 25,
+//     name: "Ruchit",
+//     city: "Ahmedabad",
+//     state: "Gujarat"
+// }
 
 // console.log(stu.city);
 
@@ -36,23 +36,23 @@ let stu ={
 // 0 1 0 1 =5
 // 0 1 1 0 =6
 
-let num = 5;
-let result = ['Even', 'Odd'][num & 1];
-console.log(result);
+// let num = 5;
+// let result = ['Even', 'Odd'][num & 1];
+// console.log(result);
 
 
-function countCharacters(str) {
-    const obj = {};
+// function countCharacters(str) {
+//     const obj = {};
 
-    for (let i = 0; i < str.length; i++) {
-        let char = str[i];
+//     for (let i = 0; i < str.length; i++) {
+//         let char = str[i];
 
-        if (obj[char]) {
-            obj[char]++;
-        } else {
-            obj[char] = 1;
-        }
-    }
+//         if (obj[char]) {
+//             obj[char]++;
+//         } else {
+//             obj[char] = 1;
+//         }
+//     }
 
-    return obj;
-}
+//     return obj;
+// }
