@@ -16,21 +16,22 @@
     // console.log(localStorage.getItem('key'));
 
     // document.cookie ="username = DEV IT";
-    // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 11:00:00 UTC;";
-    // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 12:01:00 UTC";
+    document.cookie ="username = doe; expires=Thu, 18 Jul 2025 11:00:00 IST;";
+    document.cookie ="username = doe; expires=Thu, 21 Jul 2025 17:43:00 IST";
     
     // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 12:02:00 UTC";
-    document.cookie ="username = john doe; max-age=10";
+    // document.cookie ="username = john doe; max-age=10";
     // delete cookie function
-    function deleteCookie(name) {
-        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    }
+    // function deleteCookie(name) {
+    //     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // }
     
     // document.cookie ="username = doe";
     // document.cookie = "username=John Doe;  path=/";
     // document.cookie = "authToken=123;secure";
     // document.cookie = "theme=dark";
     
+
 
     // try{
 // wraps the code that might cause an error
@@ -42,20 +43,47 @@
 
     // throw  // ti throws new exception
 
-    try{
-        let age= 15;
-        if(age < 18){
-            throw new Error("You must be 18 or older.");
-        } else {
-            console.log("Age is granted");
-        }
-    }catch(err){
-        console.log("Error: " , err.message);
-    }finally{
-        console.log("Age verification complete.");
+    // a()
+
+    // function  a(){
+    //     console.log("a");
+    // }
+
+    let caal= {
+        age: 15,
+        name: "call",
     }
+ 
+    localStorage.setItem('ca','' )
+
+    // try{
+    //     let age= 15;
+    //     if(age < 18){
+    //         throw new Error("You must be 18 or older.");
+    //     } else {
+    //         console.log("Age is granted");
+    //     }
+    // }catch(err){
+    //     console.log("Error: " , err.message);
+    // }finally{
+    //     console.log("Age verification complete.");
+    // }
 
 
     </script>
+
+    <!-- | Feature                     | **Local Storage**                                             | **Cookies**                                                         |
+| --------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **Size Limit**              | \~5MB                                                         | \~4KB                                                               |
+| **Data Expiry**             | No expiry unless manually cleared                             | Has expiration date set (default: session-only)                     |
+| **Accessible By**           | Only via **JavaScript** (on client-side)                      | Accessible by **server** and **client** (JavaScript & HTTP headers) |
+| **Sent with HTTP Requests** |  No                                                           |  Yes, automatically sent with every HTTP request                   |
+| **Storage Location**        | Stored in browser                                             | Stored in browser, but also included in server communication        |
+| **Security**                | Vulnerable to XSS attacks                                     | Vulnerable to XSS and CSRF if not secured                           |
+| **Use Cases**               | Storing large client-side data like themes, preferences, etc. | Storing small data like session tokens, authentication info         |
+| **API**                     | `localStorage.setItem()`, `getItem()`, `removeItem()`         | `document.cookie = "name=value"`                                    | -->
+
+
+
 </body>
 </html>

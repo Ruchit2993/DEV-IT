@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+     <form class="row g-3 bg-light text-dark p-5 rounded-4 m-3" onsubmit="handleSubmit(event)">
+                        <h1 class="text-center fw-bold text-primary">Json Calculator</h1>
+                        <div class="col-md-12">
+                            <label for="expression_for_calculate" class="form-label">Expression for Calculate</label>
+                            <input type="text" class="form-control" id="expression_for_calculate" oninput="handleCalculate()">
+                            <span id="inputFeedback"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="Answer" class="form-label">Answer</label>
+                            <input type="text" class="form-control" id="Answer" disabled>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-dark w-100 fw-bold">Calculate</button>
+                        </div>
+                    </form>
+
+
+//only except strict js
+"use strict";
+
+function handleSubmit(e) {
+  e.preventDefault();
+  let expression_for_calculate = document.getElementById(
+    "expression_for_calculate"
+  );
+  let Answer = document.getElementById("Answer");
+  let expression_for_calculate_val = expression_for_calculate.value;
+
+  //   console.log(eval(expression_for_calculate_val));
+
+  let ansOfExpression = eval(expression_for_calculate_val);
+
+  Answer.value = ansOfExpression;
+
+  //  console.log(Answer);
+}
+
+
+//exception handaling
+function handleCalculate() {
+  let regex = /^[-+]?[0-9]{0,}([-+*/]?)[0-9]+$/;
+  let expression_for_calculate = document.getElementById(
+    "expression_for_calculate"
+  );
+  let expression_for_calculate_val = expression_for_calculate.value;
+  let inputFeedback=document.getElementById("inputFeedback");
+
+  try {
+    if (regex.test(expression_for_calculate_val)) {
+        expression_for_calculate.style.boxShadow="10px 5px 5px green";
+        inputFeedback.classList="text-success fw-bold";
+
+    }else{
+        throw new Error (`invalid input for calculation`);
+    }
+  } catch (error) {
+        expression_for_calculate.style.boxShadow="10px 5px 5px red";
+        inputFeedback.classList="text-danger fw-bold";
+        inputFeedback.innerText=error.message;
+  }
+}
+</body>
+</html>
