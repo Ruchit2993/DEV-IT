@@ -1,89 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-    <script> 
-    // localStorage.setItem('key', 'value');
-    // localStorage.setItem('username','dev');
-    // const asd = localStorage.getItem('key');
-    // console.log(asd);
-    // localStorage.removeItem('key');
-    // console.log(localStorage.getItem('key'));
+    <script>
+        // localStorage.setItem('key', 'value');
+        // localStorage.setItem('username','dev');
+        // const asd = localStorage.getItem('key');
+        // console.log(asd);
+        // localStorage.removeItem('key');
+        // console.log(localStorage.getItem('key'));
 
-    // document.cookie ="username = DEV IT";
-    document.cookie ="username = doe; expires=Thu, 18 Jul 2025 11:00:00 IST;";
-    document.cookie ="username = doe; expires=Thu, 21 Jul 2025 17:43:00 IST";
+        // document.cookie ="username = DEV IT";
+        // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 11:00:00 IST;";
+        // document.cookie ="username = doe; expires=Thu, 21 Jul 2025 17:43:00 IST";
+
+        // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 12:02:00 UTC";
+        // document.cookie ="username = john doe; max-age=10";
+        // delete cookie function
+        // function deleteCookie(name) {
+        //     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        // }
+
+        // document.cookie ="username = doe";
+        // document.cookie = "username=John Doe;  path=/";
+        // document.cookie = "authToken=123;secure";
+        // document.cookie = "theme=dark";
+
+
+
+        // try{
+        // wraps the code that might cause an error
+        // }catch(error){
+        // handels the error if one occurs
+        // }finally{
+        // always runs, wether an error occured or not
+        // }
+
+        // throw  // ti throws new exception
+
+        // a()
+
+        // function  a(){
+        //     console.log("a");
+        // }
+
+        // let caal= {
+        //     age: 15,
+        //     name: "call",
+        // }
+
+        // localStorage.setItem('ca','' )
+
+        // make array of  1 to 4 numbers
+        // let arr = [1, 2, 3, 4];
+        // add 7 at the index of the 7
+        // arr[7] = 7;
+        // fing the length of the array
+        // console.log(arr.length); // 8
+        //  waht is at the index of the 5
+        // console.log(arr[5]); // undefined
+
+        // console.log(null == 0); //false
+        // console.log(null > 0); //false
+        // console.log(null >= 0); //true
+
+        // console.log("a");
+        // setTimeout(() => {
+        //     console.log("b");
+        // }, 15000);
+        // setTimeout(() => {
+        //     console.log("c");
+        // }, 0);
+        // console.log("d");
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         console.log("e");
+        //         resolve();
+        //     }, 2000);
+        // });
+
+        //next JS
+        //shade cn //use client
+        //SSR
+        //stric mode
+        // hidden using ind css and js
+        // && and Nullish opretor 
+
+        
+        // try{
+        //     let age= 15;
+        //     if(age < 18){
+        //         throw new Error("You must be 18 or older.");
+        //     } else {
+        //         console.log("Age is granted");
+        //     }
+        // }catch(err){
+        //     console.log("Error: " , err.message);
+        // }finally{
+        //     console.log("Age verification complete.");
+        // }
+
+        // 1: Local storage example with key value pair & saving using JSON 
+
+        const user = {
+            name: "Dev",
+            age: 21,
+            isLoggedIn: true,
+        };
+
+        localStorage.setItem("userData", JSON.stringify(user));
+
+        const storedUser = localStorage.getItem("userData");
+
+        const userObj = JSON.parse(storedUser);
+        console.log(userObj);
+
+        const user1 = {
+            name: "Dev_IT",
+            age: 21,
+            isLoggedIn: false,
+        };
+
+        localStorage.setItem("userData2", JSON.stringify(user1));
+        const storedUser1 = localStorage.getItem("userData2");
+        const userObj1 = JSON.parse(storedUser1);
+        console.log(userObj1);
+
+        // localStorage.removeItem("userData2");
+        // localStorage.clear()
+
+        // 2: cookies with all types
+
+        document.cookie = "user1 = Dev";
+        document.cookie = "user2 = ASD ; max-age = 10";
+        document.cookie = "user3 = QWE ; path = /";
+        document.cookie = "user4 = ZXC ; domain = example.com";
+        document.cookie = "user4 = ZXC ; secure";
+// nesscy cookis 
+        // 3: make 2 local storage var then delete one of them and then delete all local storage
+
+        // localStorage.setItem("username", "Ruchit");
+        // localStorage.setItem("email", "ruchit@example.com");
+
+        // console.log("Before deletion:");
+        // console.log("Username:", localStorage.getItem("username")); 
+        // console.log("Email:", localStorage.getItem("email")); 
+        // localStorage.removeItem("email");
+
+        // console.log("After deleting 'email':");
+        // console.log("Username:", localStorage.getItem("username")); 
+        // console.log("Email:", localStorage.getItem("email")); 
+
+        // console.log("After clearing all:");
+        // console.log("Username:", localStorage.getItem("username")); 
+        // console.log("Email:", localStorage.getItem("email")); 
+
+        // document.cookie = "cookie1 = value1; max-age=3600"; 
+        // document.cookie = "cookie2 = value2; max-age=3600"; 
+        // function deleteCookie(name) {
+        //     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        // }
+        // deleteCookie("cookie1");
+
+
+
+        // 4: try catch example with finally
+
+
+        try {
+            let age = 17;
+            if (age < 18) {
+                throw new Error("You must be above 18 to access this content");
+            } else {
+                console.log("Access");
+            }
+        } catch (err) {
+            console.log("Error:", err.message);
+        }
+
+        // with finally
+
+        try {
+            let a = 10;
+            let b = 0;
+
+            if (b === 0) {
+                throw new Error("Division by zero is not allowed");
+            }
+
+            let result = a / b;
+            console.log("Result:", result);
+        } catch (err) {
+            console.log("Error:", err.message);
+        } finally {
+            console.log("This block always runs, regardless of error");
+        }
+
+    //     Local Storage vs Cookies
     
-    // document.cookie ="username = doe; expires=Thu, 18 Jul 2025 12:02:00 UTC";
-    // document.cookie ="username = john doe; max-age=10";
-    // delete cookie function
-    // function deleteCookie(name) {
-    //     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    // }
-    
-    // document.cookie ="username = doe";
-    // document.cookie = "username=John Doe;  path=/";
-    // document.cookie = "authToken=123;secure";
-    // document.cookie = "theme=dark";
-    
+    //     | Feature                     | **Local Storage**                                             | **Cookies**                                                         |
+    // | --------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------- |
+    // | **Size Limit**              | \~5MB                                                         | \~4KB                                                               |
+    // | **Data Expiry**             | No expiry unless manually cleared                             | Has expiration date set (default: session-only)                     |
+    // | **Accessible By**           | Only via **JavaScript** (on client-side)                      | Accessible by **server** and **client** (JavaScript & HTTP headers) |
+    // | **Sent with HTTP Requests** |  No                                                           |  Yes, automatically sent with every HTTP request                   |
+    // | **Storage Location**        | Stored in browser                                             | Stored in browser, but also included in server communication        |
+    // | **Security**                | Vulnerable to XSS attacks                                     | Vulnerable to XSS and CSRF if not secured                           |
+    // | **Use Cases**               | Storing large client-side data like themes, preferences, etc. | Storing small data like session tokens, authentication info         |
+    // | **API**                     | `localStorage.setItem()`, `getItem()`, `removeItem()`         | `document.cookie = "name=value"`                                    |
 
-
-    // try{
-// wraps the code that might cause an error
-    // }catch(error){
-// handels the error if one occurs
-    // }finally{
-// always runs, wether an error occured or not
-    // }
-
-    // throw  // ti throws new exception
-
-    // a()
-
-    // function  a(){
-    //     console.log("a");
-    // }
-
-    let caal= {
-        age: 15,
-        name: "call",
-    }
  
-    localStorage.setItem('ca','' )
-
-    // try{
-    //     let age= 15;
-    //     if(age < 18){
-    //         throw new Error("You must be 18 or older.");
-    //     } else {
-    //         console.log("Age is granted");
-    //     }
-    // }catch(err){
-    //     console.log("Error: " , err.message);
-    // }finally{
-    //     console.log("Age verification complete.");
-    // }
+    // let arrr =["a","A","v",9,2,"B"]
+    // undefined
+    // console.log(arrr.sort())
+    //  [2, 9, 'A', 'B', 'a', 'v'] 
+    // the question is that why it is setting ABab then AaBb
 
 
     </script>
-
-    <!-- | Feature                     | **Local Storage**                                             | **Cookies**                                                         |
-| --------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------- |
-| **Size Limit**              | \~5MB                                                         | \~4KB                                                               |
-| **Data Expiry**             | No expiry unless manually cleared                             | Has expiration date set (default: session-only)                     |
-| **Accessible By**           | Only via **JavaScript** (on client-side)                      | Accessible by **server** and **client** (JavaScript & HTTP headers) |
-| **Sent with HTTP Requests** |  No                                                           |  Yes, automatically sent with every HTTP request                   |
-| **Storage Location**        | Stored in browser                                             | Stored in browser, but also included in server communication        |
-| **Security**                | Vulnerable to XSS attacks                                     | Vulnerable to XSS and CSRF if not secured                           |
-| **Use Cases**               | Storing large client-side data like themes, preferences, etc. | Storing small data like session tokens, authentication info         |
-| **API**                     | `localStorage.setItem()`, `getItem()`, `removeItem()`         | `document.cookie = "name=value"`                                    | -->
+ 
 
 
 
 </body>
+
 </html>

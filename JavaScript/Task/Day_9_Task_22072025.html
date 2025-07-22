@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Assignments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light text-dark p-4">
+
+    <div class="container">
+        <h1 class="text-center mb-4">JavaScript Assignments</h1>
+
+        <!-- Assignment 1 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>1 Loop from 1 to 100 skipping multiples of 3 and 5</h5>
+            <pre id="loopOutput" class="bg-dark text-white p-2 rounded"></pre>
+            <button onclick="runLoop()" class="btn btn-primary mt-2">Run Loop</button>
+        </div>
+
+        <!-- Assignment 2 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>2 Get 'type' attribute of email input</h5>
+            <input type="email" id="emailInput" class="form-control mb-2" placeholder="Enter email">
+            <button onclick="getInputType()" class="btn btn-success">Get Input Type</button>
+            <p id="emailTypeResult" class="mt-2"></p>
+        </div>
+
+        <!-- Assignment 3 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>3 Hide a paragraph on button click</h5>
+            <p id="hidePara">This paragraph will disappear when the button is clicked.</p>
+            <button onclick="hideParagraph()" class="btn btn-danger">Hide Paragraph</button>
+        </div>
+
+        <!-- Assignment 4 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>4 Prompt user for age and show alert</h5>
+            <button onclick="promptAge()" class="btn btn-warning">Enter Age</button>
+        </div>
+
+        <!-- Assignment 5 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>5 Form with Reset Button</h5>
+            <form id="sampleForm">
+                <input type="text" class="form-control mb-2" placeholder="Name" name="name">
+                <input type="email" class="form-control mb-2" placeholder="Email" name="email">
+                <button type="reset" class="btn btn-secondary me-2">HTML Reset</button>
+                <button type="button" onclick="resetForm()" class="btn btn-outline-secondary">JS Reset</button>
+            </form>
+        </div>
+
+
+        <!-- Assignment 6 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>6 Square of a number function</h5>
+            <input type="number" id="squareInput" class="form-control mb-2" placeholder="Enter a number">
+            <button onclick="showSquare()" class="btn btn-info">Show Square</button>
+            <p id="squareResult" class="mt-2"></p>
+        </div>
+
+        <!-- Assignment 7 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>7 Enter a comma-separated string and split into array</h5>
+            <input type="text" id="colorInput" class="form-control mb-2" placeholder="e.g. red,green,blue">
+            <button onclick="splitUserColors()" class="btn btn-dark">Split String</button>
+            <p id="userColorArray" class="mt-2"></p>
+        </div>
+
+
+        <!-- Assignment 8 -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>8 Ternary Operator - Pass or Fail</h5>
+            <input type="number" id="marksInput" class="form-control mb-2" placeholder="Enter marks">
+            <button onclick="checkResult()" class="btn btn-primary">Check Result</button>
+            <p id="resultStatus" class="mt-2"></p>
+        </div>
+    </div>
+    <script src="Day_9_Task_22072025.js"></script>
+</body>
+
+</html>
