@@ -19,8 +19,8 @@ function evaluateExpression(jsonText) {
         );
       }
 
-      let key = keys[0]; // First key (e.g., "math", "formula", etc.)
-      let expression = obj[key]; // Get the value from that key
+      let key = keys[0]; 
+      let expression = obj[key];
 
       // Check that the value is a string
       if (typeof expression !== "string") {
@@ -105,8 +105,7 @@ itemList.addEventListener("click", function (event) {
 // Assignment 4: Hoisting & Debug Scenario
 // Concepts: Hoisting, var/let, debugger, Strict Mode
 
-// debugger; // This line will pause the browser if DevTools is open
-
+// debugger; 
 // Hoisting Example with var
 console.log("Value of a before declaration:", a); // undefined
 var a = 10;
@@ -188,9 +187,9 @@ function fakeSaveToServer(name, dob, result) {
 }
 
 // closest() example
-document.addEventListener("click", function (e) {
-  if (e.target.tagName === "INPUT") {
-    const form = e.target.closest("form");
-    console.log("Clicked inside form:", form.id);
-  }
-});
+// document.addEventListener("click", function (e) {
+//   if (e.target.tagName === "INPUT") {
+//     const form = e.target.closest("form");
+//     console.log("Clicked inside form:", form.id);
+//   }
+// });
