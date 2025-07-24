@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Multiple Inputs from JSON</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Color Selection</h2>
+
+  <div class="dropdown">
+    <label for="colorDropdown">Dropdown:</label>
+    <select id="colorDropdown">
+      <option value="">-- Select Color --</option>
+    </select>
+  </div>
+
+  <div class="section">
+    <strong>Checkboxes:</strong><br>
+    <div id="checkboxContainer"></div>
+  </div>
+
+  <div class="section">
+    <strong>Radio Buttons:</strong><br>
+    <div id="radioContainer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+    fetch('data.json')
+      .then(res => res.json())
+      .then(colors => {
+        const dropdown = document.getElementById('colorDropdown');
+        colors.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.id;
+          option.textContent = item.value;
+          dropdown.appendChild(option);
+        });
+
+        // Checkboxes
+        const checkboxContainer = document.getElementById('checkboxContainer');
+        colors.forEach(item => {
+          const label = document.createElement('label');
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.name = 'colorsCheckbox';
+          checkbox.value = item.id;
+          label.appendChild(checkbox);
+          label.append(" " + item.value);
+          checkboxContainer.appendChild(label);
+          checkboxContainer.appendChild(document.createElement('br'));
+        });
+
+        // Radio buttons
+        const radioContainer = document.getElementById('radioContainer');
+        colors.forEach(item => {
+          const label = document.createElement('label');
+          const radio = document.createElement('input');
+          radio.type = 'radio';
+          radio.name = 'colorRadio';
+          radio.value = item.id;
+          label.appendChild(radio);
+          label.append(" " + item.value);
+          radioContainer.appendChild(label);
+          radioContainer.appendChild(document.createElement('br'));
+        });
+      })
+      .catch(err => console.error('Failed to load JSON:', err));
+
+    let arr1 = ["Red", "Green", "Blue"];
+    let arr2 = ["red", "Green", "yellow"];
+
+    const diff1 = [];
+    for (const item of arr1) {
+      if (!arr2.includes(item)) {
+        diff1.push(item);
+      }
+    }
+    console.log("Only in arr1:", diff1);
+
+    const diff2 = arr2.reduce((result, item) => {
+      if (!arr1.includes(item)) result.push(item);
+      return result;
+    }, []);
+    console.log("Only in arr2:", diff2);
+    
+  </script>
+
+</body>
+
+</html>

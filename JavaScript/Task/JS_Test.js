@@ -92,10 +92,11 @@
 // console.log(diffDays);
 // console.log(diffTime);
 
-const num = (1+"1")-1
-console.log(num);
-console.log(typeof(num))
-console.log(num === 10);
+// const num = (1+"1")-1
+
+// console.log(num);
+// console.log(typeof(num))
+// console.log(num === 10);
 
 // const PI2 = 3.14159;
 // PI2 =3.145

@@ -1,0 +1,23 @@
+[
+	{
+		"id": "#f00", "value": "red"
+	},
+	{
+		"id": "#0f0", "value": "green"
+	},
+	{
+		"id": "#00f", "value": "blue"
+	},
+	{
+		"id": "#0ff", "value": "cyan"
+	},
+	{
+		"id": "#f0f", "value": "magenta"
+	},
+	{
+		"id": "#ff0", "value": "yellow"
+	},
+	{
+		"id": "#000", "value": "black"
+	}
+]

@@ -31,11 +31,18 @@
         </div>
 
         <!-- Assignment 3 -->
-        <div class="mb-4 p-3 border rounded bg-white">
+        <!-- <div class="mb-4 p-3 border rounded bg-white">
             <h5>3 Hide a paragraph on button click</h5>
             <p id="hidePara">This paragraph will disappear when the button is clicked.</p>
             <button onclick="hideParagraph()" class="btn btn-danger">Hide Paragraph</button>
+        </div> -->
+        <!-- Assignment 3 (Updated) -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>3 Toggle Paragraph Show/Hide on Button Click</h5>
+            <p id="togglePara" style="display: none;">This paragraph is toggled using the button below.</p>
+            <button onclick="toggleParagraph()" id="toggleBtn" class="btn btn-danger">Show Paragraph</button>
         </div>
+
 
         <!-- Assignment 4 -->
         <div class="mb-4 p-3 border rounded bg-white">
@@ -64,13 +71,19 @@
         </div>
 
         <!-- Assignment 7 -->
+        <!-- <div class="mb-4 p-3 border rounded bg-white">
+            <h5>7 Enter a comma-separated string and split into array</h5>
+            <input type="text" id="colorInput" class="form-control mb-2" placeholder="e.g. red,green,blue">
+            <button onclick="splitUserColors()" class="btn btn-dark">Split String</button>
+            <p id="userColorArray" class="mt-2"></p>
+        </div> -->
+        <!-- Assignment 7 (Updated) -->
         <div class="mb-4 p-3 border rounded bg-white">
             <h5>7 Enter a comma-separated string and split into array</h5>
             <input type="text" id="colorInput" class="form-control mb-2" placeholder="e.g. red,green,blue">
             <button onclick="splitUserColors()" class="btn btn-dark">Split String</button>
             <p id="userColorArray" class="mt-2"></p>
         </div>
-
 
         <!-- Assignment 8 -->
         <div class="mb-4 p-3 border rounded bg-white">
@@ -79,6 +92,17 @@
             <button onclick="checkResult()" class="btn btn-primary">Check Result</button>
             <p id="resultStatus" class="mt-2"></p>
         </div>
+
+        <!-- New Assignment: Password Show/Hide -->
+        <div class="mb-4 p-3 border rounded bg-white">
+            <h5>9 Toggle Password Visibility with Eye Icon</h5>
+            <div class="password-wrapper">
+                <input type="password" id="passwordField" class="form-control mb-2" placeholder="Enter password">
+                <span class="toggle-eye" onclick="togglePasswordVisibility()">.
+                    <i class="bi bi-eye-fill text-warning fw-bold" id="togglePassword"></i></span>
+            </div>
+        </div>
+
     </div>
     <script src="Day_9_Task_22072025.js"></script>
 </body>
