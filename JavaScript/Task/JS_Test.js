@@ -73,10 +73,10 @@
 
 
 // function getSimpleWeekNumber(date) {
-//     const start = new Date(date.getFullYear(), 0, 1);
+//     const start = new Date(date.getFullYear(), 1, 1);
 //     const diff = date - start;
 //     const oneWeek = 1000 * 60 * 60 * 24 * 7;
-//     console.log("start:", start.toLocaleString());
+//     console.log("start:", start);
 //     console.log("diff:", diff);
 //     console.log("oneWeek:", oneWeek);
 //     return Math.ceil((diff + 1) / oneWeek);

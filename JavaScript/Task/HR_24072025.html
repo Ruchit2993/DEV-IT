@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Even Row Styling</title>
+  <style>
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+      table {
+        width: 60%;
+        border-collapse: collapse;
+        margin: auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+      thead {
+        background-color: #4caf50;
+        color: white;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+      tr:nth-child(even) td {
+        background-color: #e8f5e9; /* light green shade */
+        font-weight: bold;
+      }
+      caption {
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+    
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <script>
+    const tableBody = document.querySelector("#myTable tbody");
+
+    for (let i = 1; i <= 10; i++) {
+      const row = document.createElement("tr");
+
+
+      const cell1 = document.createElement("td");
+      const cell2 = document.createElement("td");
+
+      cell1.textContent = i;
+      cell2.textContent = `Name ${i}`;
+
+      row.appendChild(cell1);
+      row.appendChild(cell2);
+
+      if (i % 2 === 0) {
+        row.style.backgroundColor = "blue"; 
+        row.style.fontWeight = "bold";
+      }
+
+      tableBody.appendChild(row);
+    }
+
+    let a ="20";
+    console.log(a+1);
+    console.log(++a);
+    console.log(a++);
+  </script>
+
+</body>
+</html>

@@ -150,3 +150,16 @@ function togglePasswordVisibility() {
   const pwd = document.getElementById("passwordField");
   pwd.type = pwd.type === "password" ? "text" : "password";
 }
+
+function testScope() {
+  let blockVar = "I'm in block";
+  var funcVar = "I'm in function";
+  
+  if (true) {
+    let insideIf = "I'm inside if block";
+    console.log("inside if block"); // ← We’ll set a breakpoint here
+  }
+
+  console.log("function end");
+}
+testScope();

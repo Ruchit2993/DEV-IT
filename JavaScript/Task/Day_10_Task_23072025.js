@@ -1,4 +1,4 @@
-console.log("1> Write a function checkKeyword(str, keyword) that returns true if the keyword is found in the given str, case-insensitive.")
+console.log("Write a function checkKeyword(str, keyword) that returns true if the keyword is found in the given str, case-insensitive.")
 
 function checkKeyword(str, keyword) {
   return str.toLowerCase().includes(keyword.toLowerCase());
@@ -6,11 +6,10 @@ function checkKeyword(str, keyword) {
 
 // Example usage:
 console.log(checkKeyword("Hello World", "world")); // true
-console.log(checkKeyword("JavaScript is fun", "SCRIPT")); // true
-console.log(checkKeyword("OpenAI GPT", "chat")); // false
+console.log(checkKeyword("JavaScript is fun", "SCRIPC")); // false
 
 
-// Create a function getWeekNumber(date) that returns the ISO 8601 week number of a given date.
+console.log("Create a function getWeekNumber(date) that returns the ISO 8601 week number of a given date.");
 // daysBetween("2025-07-01", "2025-07-23"); // 22
 
 function getISOWeek(date) {
@@ -44,11 +43,11 @@ getISOWeek(new Date("2025-01-01")); // Week 1
 getISOWeek(new Date("2025-12-31")); // Week 1 or 53 depending
 
 
-console.log("2> Write a function daysBetween(date1, date2) that calculates and returns the number of full days between the two dates.")
+console.log("Write a function daysBetween(date1, date2) that calculates and returns the number of full days between the two dates.")
 
 console.log(daysBetween("2025-07-01", "2025-07-23")); // 22
 
-// Write a function cleanNames(str) that takes a comma-separated string and returns an array of trimmed
+console.log("Write a function cleanNames(str) that takes a comma-separated string and returns an array of trimmed");
 // cleanNames(" John , Jane , Bob ") // ["John", "Jane", "Bob"]
 
 function cleanNames(str) {
@@ -74,17 +73,16 @@ function startCountdown() {
   }, 1000); // 1000 ms = 1 second
 }
 
-// Start the countdown
-// startCountdown();
+startCountdown();
 
 
-console.log("3>Create a class Car with a static property totalCars and a const object inside a function.");
+console.log("Create a class Car with a static property totalCars and a const object inside a function.");
 
 class Car {
   static totalCars = 0;
 
-  constructor(brand, model) {
-    this.brand = brand;
+  constructor(brand1, model) {
+    this.brand = brand1;
     this.model = model;
     Car.totalCars++; // Increment static property
   }
@@ -121,7 +119,7 @@ console.log("Total Cars:", Car.getTotalCars()); // 2
 showCarInfo(); // logs the const object
 
 
-console.log("4> Explain when to use static vs const.");
+console.log("Explain when to use static vs const.");
 
 class Cars {
   static totalCars = 0; // Static property shared across all instances
@@ -169,7 +167,7 @@ Cars.showStats(); // Static method call
 getProductionConfig(); // Const object in function
 
 
-console.log("5> Write a function parseCSV(str) that: Converts a comma-separated string to an array")
+console.log("Write a function parseCSV(str) that: Converts a comma-separated string to an array")
 console.log("Trims each item, Filters out empty strings, parseCSV(\", apple , banana , , cherry \") // [\"apple\", \"banana\", \"cherry\"]");
 
 function parseCSV(str) {
@@ -190,7 +188,7 @@ function checkKeyword(str, keyword) {
 console.log(checkKeyword("Hello World", "world")); // true
 console.log(checkKeyword("JavaScript is Fun", "script")); // true
 
-console.log("6> Create a function getWeekNumber(date) that returns the ISO 8601 week number of a given date.");
+console.log("Create a function getWeekNumber(date) that returns the ISO 8601 week number of a given date.");
 
 // Function to get ISO 8601 week number
 function getWeekNumber(date) {
@@ -214,7 +212,7 @@ function daysBetween(date1, date2) {
 console.log(getWeekNumber(new Date("2025-07-23"))); // e.g., 30
 console.log(daysBetween("2025-07-01", "2025-07-23")); // 22
 
-console.log("7> Create a function getWeekNumber(date) that returns the ISO 8601 week number of a given date.");
+console.log("Create a function getWeekNumber(date) that returns the ISO 8601 week number of a given date.");
 
 function getWeekNumber(date) {
   const target = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
@@ -227,7 +225,7 @@ function getWeekNumber(date) {
   return weekNo;
 }
 
-console.log("8> Write a function daysBetween(date1, date2) that calculates and returns the number of full days between the two dates.");
+console.log("Write a function daysBetween(date1, date2) that calculates and returns the number of full days between the two dates.");
 
 function daysBetween(date1, date2) {
   const d1 = new Date(date1);
@@ -244,7 +242,7 @@ function daysBetween(date1, date2) {
 console.log(daysBetween("2025-07-01", "2025-07-23")); // 22
 console.log(daysBetween("2025-12-31", "2026-01-02")); // 2
 
-console.log("9> Write a function cleanNames(str) that takes a comma-separated string and returns an array of trimmed");
+console.log("Write a function cleanNames(str) that takes a comma-separated string and returns an array of trimmed");
 
 function cleanNames(str) {
   return str
