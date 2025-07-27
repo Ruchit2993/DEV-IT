@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onaload="getURLParams()">
+    <h3 id="username">Your Username is:</h3>
+    <h3 id="password">Your Password is:</h3>
+    <form method="get" action="">
+        <input type="text" placeholder="Enter User Name" name="username" required />
+        <input type="password" placeholder="Enter Password" name="password" required />
+        <input type="button" value="register" />
+
+    </form>
+    <script>
+        function getURLParams() {
+            let info = []
+            let url = window.location.href
+            let paramString = url.split('?')[1]
+            let queryString = new URLSearchParams(paramString)
+            for (let data of queryString.entries) {
+                console.log("key is " + data[0])
+                console.log("vlaue os " + data[1])
+                info.push(data[1])
+            }
+            document.getElementById(`username`).innerHTML += info[0]
+            document.getElementById(`password`).innerHTML += info[1]
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="bodyLoad()">
+    <h3> HI there </h3>
+    <p>Welcome <span id="userName"></span></p>
+    <script>
+        function bodyLoad(){
+            username = location.search
+            document.getElementById("userName").innerHTML= username.slice(username.indexOf("=")+1)  
+        }
+    </script>
+</body>
+</html> -->
