@@ -121,6 +121,33 @@
 // console.log(isObjectEmpty({ x: 1 }));   // false
 
 // 7)Convert an Object to a quareyString.
+// way 1
+// mkae a big object
+// const obj = {
+//   name: "Dev",  
+//   age: 25, 
+//   city: "Ahemedabad Thaltej",
+//   hobbies: ["reading", "coding"], 
+//   isEmployed: true
+// }
+// const params = new URLSearchParams(obj);
+// const QueryString = params.toString();
+// console.log(QueryString)
+
+// way 2
+// function objectToQueryString(obj) {
+//   return Object.entries(obj)
+//     .map(([key, value]) => {
+//       if (Array.isArray(value)) {
+//         return `${key}=${value.join(",")}`;
+//       } else if (typeof value === "object" && value !== null) {
+//         return `${key}=${JSON.stringify(value)}`;
+//       }
+//       return `${key}=${encodeURIComponent(value)}`;
+//     })
+//     .join("&");
+// } 
+// console.log(objectToQueryString(obj)); // name=John&age=30&city=New%20York&hobbies=reading,traveling&isEmployed=true
 
 // 8)Find the Fectorial.
 
@@ -181,7 +208,7 @@
 // 10)Get All Unique values from Nested Array ex.[[1,2],[2,3],[3,4],[4,3],[5,5]].
 
 // way 1
-const arr4 = [[1, 2], [2, 3], [3, 4], [4, 3], [5, 5]];
+// const arr4 = [[1, 2], [2, 3], [3, 4], [4, 3], [5, 5]];
 // const result = [];
 // for (let subArr of arr4) {
 //   for (let valOfArr of subArr) {
@@ -216,16 +243,279 @@ const arr4 = [[1, 2], [2, 3], [3, 4], [4, 3], [5, 5]];
 // console.log(camelCaseName);
 
 // way 2
-function toCamelCase(str) {
-  let words = str.toLowerCase().split(" ");
-  let result = words[0];
+// function toCamelCase(str) {
+//   let words = str.toLowerCase().split(" ");
+//   let result = words[0];
 
-  for (let i = 1; i < words.length; i++) {
-    result += words[i][0].toUpperCase() + words[i].slice(1);
-  }
+//   for (let i = 1; i < words.length; i++) {
+//     result += words[i][0].toUpperCase() + words[i].slice(1);
+//   }
 
-  return result;
-}
-console.log(toCamelCase("ruchit dipak bhai pitaliya")); 
+//   return result;
+// }
+// console.log(toCamelCase("ruchit dipak bhai pitaliya")); 
 
+
+// 12)Make a TextArea And write a Paraghraph in it and also make a button and when user Click btn the whole Paragraph Will Cpoied.
+
+// in html file
+
+// 13)Check If String Has All Unique Char if not then remove dulicate char
+
+// way 1
+// function removeDuplicates(str) {
+//   let result = "";
+//   let seen = new Set();
+//   for (let char of str) {
+//     if (!seen.has(char)) {
+//       result += char;
+//       seen.add(char);
+//     }
+//   }
+//   const isUnique = str.length === result.length;
+//   return {
+//     isUnique,
+//     uniqueString: result
+//   };
+// }
+// let input = "programming";
+// let { isUnique, uniqueString } = removeDuplicates(input);
+// console.log("Is unique?", isUnique);        
+// console.log("Without duplicates:", uniqueString); 
+
+// way 2
+// function removeDuplicates(str) {
+//   let uniqueStr = str
+//     .split('')
+//     .filter((char, index, arr) => arr.indexOf(char) === index)
+//     .join('');
+
+//   return {
+//     isUnique: str.length === uniqueStr.length,
+//     uniqueString: uniqueStr
+//   };
+// }
+
+// console.log(removeDuplicates("The quick brown fox jumps over the lazy dog")); 
+
+// way 3
+// function removeDuplicates(str) {
+//   let result = "";
+//   let seen = [];
+//   str.split("").forEach(char => {
+//     if (!seen.includes(char)) {
+//       seen.push(char);
+//       result += char;
+//     }
+//   });
+//   return {
+//     isUnique: str.length === result.length,
+//     uniqueString: result
+//   };
+// }
+// console.log(removeDuplicates("hello"));
+
+// 14)Find The First Non Reapeting Char In String.
+
+// way 1
+// function firstNonRepeatingChar(str) {
+//   const charCount = new Map();
+//   for (let char of str) {
+//     charCount.set(char, (charCount.get(char) || 0) + 1);
+//   }
+//   for (let char of str) {
+//     if (charCount.get(char) === 1) {
+//       return char;
+//     }
+//   }
+//   return null;
+// }
+// console.log("first Non Repeating Char of string: aabbccdeef is :  ",firstNonRepeatingChar("aabbccdeef"));
+
+// way 2
+// function firstNonRepeatingChar(str) {
+//   for (let char of str) {
+//     if (str.split(char).length - 1 === 1) {
+//       return char;
+//     }
+//   }
+//   return null;
+// } 
+// console.log("first Non Repeating Char of string: aabbccdeef is :  ",firstNonRepeatingChar("aabbccdeef"));
+
+// 15)Find The Intersection of Two Arrays ex. [[1,2,3],[2,3,4]] / O.P [2,3].
+
+// way 1
+// function getIntersection(arr1, arr2) {
+//   return arr1.filter(item => arr2.includes(item));
+// }
+// console.log(getIntersection([1, 2, 3], [2, 3, 4]));
+
+// way 2
+// function getIntersection(arr1, arr2) {
+//   let set2 = new Set(arr2);
+//   return arr1.filter(item => set2.has(item));
+// }
+// console.log(getIntersection([1, 2, 3], [2, 3, 4]));
+
+// way 3
+// function getIntersection(arr1, arr2) {
+//   return arr1.reduce((acc, val) => {
+//     if (arr2.includes(val)) acc.push(val);
+//     return acc;
+//   }, []);
+// }
+// console.log(getIntersection([1, 2, 3], [2, 3, 4])); 
+
+// way 4
+// function getIntersection(arr1, arr2) {
+//   let result = [];
+//   for (let item of arr1) {
+//     if (arr2.includes(item)) {
+//       result.push(item);
+//     }
+//   }
+//   return result;
+// }
+// console.log(getIntersection([1, 2, 3], [2, 3, 4]));
+
+// 16)Find a Group of Elements by Frequancy (Write Your Own FullName).
+
+// way 1
+// function groupByFrequency(str) {
+//   let charCount = {};
+//   let freqGroup = {};
+
+//   // Clean the string: remove spaces, make lowercase
+//   str = str.replace(/\s/g, '').toLowerCase();
+
+//   // Step 1: Count frequency of each character
+//   for (let char of str) {
+//     charCount[char] = (charCount[char] || 0) + 1;
+//   }
+
+//   // Step 2: Group characters by their count
+//   for (let char in charCount) {
+//     let count = charCount[char];
+//     if (!freqGroup[count]) {
+//       freqGroup[count] = [];
+//     }
+//     freqGroup[count].push(char);
+//   }
+
+//   return freqGroup;
+// }
+// const name = "ruchit pitaliya";
+// const result = groupByFrequency(name);
+// for (let freq in result) {
+//   console.log(`${freq} = [${result[freq].join(', ')}]`);
+// }
+
+// way 2
+// function groupByFrequency(str) {
+//   const charMap = new Map();
+//   const freqGroup = new Map();
+
+//   // Remove spaces and lowercase
+//   str = str.replace(/\s/g, '').toLowerCase();
+
+//   // Step 1: Count frequency of each character
+//   for (let char of str) {
+//     charMap.set(char, (charMap.get(char) || 0) + 1);
+//   }
+
+//   // Step 2: Reverse map — group by frequency
+//   charMap.forEach((count, char) => {
+//     if (!freqGroup.has(count)) {
+//       freqGroup.set(count, []);
+//     }
+//     freqGroup.get(count).push(char);
+//   });
+
+//   return freqGroup;
+// }
+
+// // Example usage
+// const name = "ruchit pitaliya";
+// const result = groupByFrequency(name);
+
+// // Print
+// for (let [count, chars] of result.entries()) {
+//   console.log(`${count} = [${chars.join(', ')}]`);
+// }
+
+// way 3
+// function charFreqPairs(str) {
+//   const map = new Map();
+//   str = str.replace(/\s/g, '').toLowerCase();
+//   for (let char of str) {
+//     map.set(char, (map.get(char) || 0) + 1);
+//   }
+//   return Array.from(map.entries());
+// }
+// console.log(charFreqPairs("ruchit pitaliya"));
+
+// 17)Find all pair in an Array that sum to a Target Numbers ex. [-1,2,3,3,4,7] / O.P  [[2,4],[3,3],[7,-1]] ...
+
+// way 1 
+// function findPairs(arr, target) {
+//   let result = [];
+//   let used = new Set(); 
+//   for (let i = 0; i < arr.length; i++) {
+//     if (used.has(i)) continue;
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (used.has(j)) continue;
+//       if (arr[i] + arr[j] === target) {
+//         result.push([arr[i], arr[j]]);
+//         used.add(i);
+//         used.add(j);
+//         break;
+//       }
+//     }
+//   }
+//   arr.forEach((val, i) => {
+//     if (!used.has(i)) {
+//       result.push(val);
+//     }
+//   });
+//   return result;
+// }
+// let arr = [-1, 1, 2, 3, 3, 4, 7];
+// let target = 6;
+// console.log(findPairs(arr, target));
+
+// way 2
+// function findPairsReduce(arr, target) {
+//   const used = new Set();
+//   const result = [];
+//   arr.reduce((_, val, i) => {
+//     if (used.has(i)) return;
+//     for (let j = 0; j < arr.length; j++) {
+//       if (i !== j && !used.has(j) && val + arr[j] === target) {
+//         result.push([val, arr[j]]);
+//         used.add(i);
+//         used.add(j);
+//         break;
+//       }
+//     }
+//   }, []);
+//   arr.forEach((val, i) => {
+//     if (!used.has(i)) result.push(val);
+//   });
+//   return result;
+// }
+// console.log(findPairsReduce([-1, 1, 2, 3, 3, 4, 7], 6));
+
+// js visulizer que
+// console.log("A");
+// setTimeout(() => {
+//   console.log("B");
+// }, 0);
+// setTimeout(() => {
+//   console.log("C");
+// }, 3500);
+// console.log("D");
+// Promise.resolve().then(() => {
+//   console.log("E");
+// });
 

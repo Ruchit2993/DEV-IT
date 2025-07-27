@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Copy TextArea</title>
+    <style>
+        textarea {
+            width: 400px;
+            height: 150px;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Paragraph TextArea</h3>
+    <textarea id="paraText">Click Copy btn to copy this area</textarea><br>
+    <button id="copyBtn">Copy</button>
+
+    <script>
+        const copyBtn = document.getElementById("copyBtn");
+        const para = document.getElementById("paraText");
+
+        function copyTextAreaContent(el) {
+            el.select();
+            // console.log(el);
+            document.execCommand("copy");
+            alert("Copied!");
+        }
+
+        copyBtn.addEventListener("click", () => copyTextAreaContent(para));
+    </script>
+
+</body>
+
+</html>
