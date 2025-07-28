@@ -63,9 +63,9 @@
 // let p = 29;
 // let l = 30;
 // console.log(`Before Swap: p = ${p} andd l = ${l}`);
-// // p = p + l;
-// // l = p - l;
-// // p = p - l;
+// p = p + l;
+// l = p - l;
+// p = p - l;
 
 // // using Destructuring
 // [p , l] = [l , p] 
@@ -123,13 +123,13 @@
 // 7)Convert an Object to a quareyString.
 // way 1
 // mkae a big object
-// const obj = {
-//   name: "Dev",  
-//   age: 25, 
-//   city: "Ahemedabad Thaltej",
-//   hobbies: ["reading", "coding"], 
-//   isEmployed: true
-// }
+const obj = {
+  name: "Dev",  
+  age: 25, 
+  city: "Ahemedabad Thaltej",
+  hobbies: ["reading", "coding"], 
+  isEmployed: true
+}
 // const params = new URLSearchParams(obj);
 // const QueryString = params.toString();
 // console.log(QueryString)
@@ -353,22 +353,6 @@
 
 // way 2
 // function getIntersection(arr1, arr2) {
-//   let set2 = new Set(arr2);
-//   return arr1.filter(item => set2.has(item));
-// }
-// console.log(getIntersection([1, 2, 3], [2, 3, 4]));
-
-// way 3
-// function getIntersection(arr1, arr2) {
-//   return arr1.reduce((acc, val) => {
-//     if (arr2.includes(val)) acc.push(val);
-//     return acc;
-//   }, []);
-// }
-// console.log(getIntersection([1, 2, 3], [2, 3, 4])); 
-
-// way 4
-// function getIntersection(arr1, arr2) {
 //   let result = [];
 //   for (let item of arr1) {
 //     if (arr2.includes(item)) {
@@ -385,18 +369,19 @@
 // function groupByFrequency(str) {
 //   let charCount = {};
 //   let freqGroup = {};
-
-//   // Clean the string: remove spaces, make lowercase
 //   str = str.replace(/\s/g, '').toLowerCase();
 
 //   // Step 1: Count frequency of each character
 //   for (let char of str) {
 //     charCount[char] = (charCount[char] || 0) + 1;
 //   }
+//     console.log(charCount);
+//     console.log(freqGroup);
 
 //   // Step 2: Group characters by their count
 //   for (let char in charCount) {
 //     let count = charCount[char];
+//     console.log(freqGroup)
 //     if (!freqGroup[count]) {
 //       freqGroup[count] = [];
 //     }
@@ -473,6 +458,7 @@
 //       }
 //     }
 //   }
+// //   console.log(used);
 //   arr.forEach((val, i) => {
 //     if (!used.has(i)) {
 //       result.push(val);
@@ -483,28 +469,48 @@
 // let arr = [-1, 1, 2, 3, 3, 4, 7];
 // let target = 6;
 // console.log(findPairs(arr, target));
-
+    
 // way 2
-// function findPairsReduce(arr, target) {
-//   const used = new Set();
+// function findPairs(arr, target) {
 //   const result = [];
-//   arr.reduce((_, val, i) => {
-//     if (used.has(i)) return;
-//     for (let j = 0; j < arr.length; j++) {
-//       if (i !== j && !used.has(j) && val + arr[j] === target) {
-//         result.push([val, arr[j]]);
-//         used.add(i);
-//         used.add(j);
+//   const used = new Set();
+  
+//   for (let i = 0; i < arr.length; i++) {
+//     if (used.has(i)) continue;
+//     let found = false;
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (!used.has(j) && arr[i] + arr[j] === target) {
+//         result.push([arr[i], arr[j]]);
+//         used.add(i).add(j);
+//         found = true;
 //         break;
 //       }
 //     }
-//   }, []);
-//   arr.forEach((val, i) => {
-//     if (!used.has(i)) result.push(val);
-//   });
+//     if (!found) result.push(arr[i]);
+//   }
+  
 //   return result;
 // }
-// console.log(findPairsReduce([-1, 1, 2, 3, 3, 4, 7], 6));
+
+// console.log(findPairs([-1, 1, 2, 3, 3, 4, 7], 6));
+
+
+const arr = [-1, 2, 3, 3, 4, 7];
+const target = 6;
+const resultPair = [];
+const used = new Set();
+
+for (let i = 0; i < arr.length; i++) {
+  const a = arr[i];
+  const b = target - a;
+  if (arr.includes(b) && !used.has(a) && !used.has(b)) {
+    resultPair.push([a, b]);
+    used.add(a);
+    used.add(b);
+  }
+}
+
+console.log(resultPair);
 
 // js visulizer que
 // console.log("A");
