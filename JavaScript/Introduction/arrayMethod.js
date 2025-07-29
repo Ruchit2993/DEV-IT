@@ -52,3 +52,5 @@ const newArr = myArr.flatMap(x => [x, x * 10]);
 // flatMap() method first maps all elements of an array and then creates a new array by flattening the array
 
 console.log(newArr);
+
+

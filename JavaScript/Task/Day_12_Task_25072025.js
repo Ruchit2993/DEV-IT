@@ -5,20 +5,18 @@ console.log("Task 1:");
 function analyzeArray(arr) {
     const uniqueValues = new Set(arr);
     const frequencyMap = new Map();
-
     for (const value of arr) {
         if (frequencyMap.has(value)) {
-            frequencyMap.set(value, frequencyMap.get(value) + 1); // increments count if exists
+            frequencyMap.set(value, frequencyMap.get(value) + 1); 
         } else {
             frequencyMap.set(value, 1);
         }
     }
     return {
-        uniqueValues: Array.from(uniqueValues), // Optional: convert Set to Array
-        frequencyMap: Object.fromEntries(frequencyMap) // Optional: convert Map to Object
+        uniqueValues: Array.from(uniqueValues), 
+        frequencyMap: Object.fromEntries(frequencyMap)
     };
 }
-
 const result = analyzeArray(["apple", "banana", "apple", 1, 2, 1, true, true, "banana"]);
 console.log(result);
 
@@ -47,9 +45,9 @@ function getDaysLeftMessage(dateStr) {
     }
 }
 
-console.log(getDaysLeftMessage("2025-08-01")); // e.g., "7 days left"
-console.log(getDaysLeftMessage(new Date().toISOString().split('T')[0])); // "Today is the day!"
-console.log(getDaysLeftMessage("2024-12-31")); // "Date has already passed"
+console.log(getDaysLeftMessage("2025-08-01")); 
+console.log(getDaysLeftMessage(new Date().toISOString().split('T')[0])); 
+console.log(getDaysLeftMessage("2025-07-28")); 
 
 console.log("Task 3:");
 // Build a mini calculator that uses callbacks.
@@ -93,8 +91,8 @@ console.log("Taks 4:");
 const loginMetadata = new WeakMap();
 const processedUsers = new WeakSet();
 
-const user1 = { name: "Alice" };
-const user2 = { name: "Bob" };
+const user1 = { name: "Ruchit" };
+const user2 = { name: "Uday" };
 
 function loginUser(user, role) {
   const timestamp = new Date();
@@ -108,7 +106,6 @@ function loginUser(user, role) {
   );
 }
 
-// Check if user has been processed
 function isUserProcessed(user) {
   return processedUsers.has(user);
 }
@@ -116,7 +113,9 @@ function isUserProcessed(user) {
 loginUser(user1, "Admin");
 loginUser(user2, "User");
 
-console.log("Has Alice been processed?", isUserProcessed(user1)); // true
-console.log("Metadata for Bob:", loginMetadata.get(user2)); // { role: 'User', loginTime: ... }
-const user3 = { name: "Charlie" };
+console.log("Has Ruchit been processed?", isUserProcessed(user1)); 
+console.log("Metadata for Uday:", loginMetadata.get(user2)); 
+const user3 = { name: "Diapk" };
 loginUser(user3);
+
+console.log("Has Dipak been processed?", isUserProcessed(user3)); 
