@@ -56,3 +56,12 @@
 
 //     return obj;
 // }
+
+// const a1 = {valueOf:()=> 2}
+// console.log(a1===2);
+// console.log(a1==2);
+// console.log(a1+2);
+// console.log(a1>2);
+// console.log(typeof(a1));
+// console.log(typeof(a1.valueOf));
+
