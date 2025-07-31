@@ -7,17 +7,29 @@
     <title>Document</title>
 </head>
 
-<body onaload="getURLParams()">
+<body >
     <h3 id="username">Your Username is:</h3>
     <h3 id="password">Your Password is:</h3>
-    <form method="get" action="">
+    <form onsubmit="handelSubmit(e)" >
         <input type="text" placeholder="Enter User Name" name="username" required />
         <input type="password" placeholder="Enter Password" name="password" required />
-        <input type="button" value="register" />
-        
+        <input type="submit" value="register" />
     </form>
+    <button type="button"  onclick="getURLParams(e)">Submit </button>
+     
     <script>
-        function getURLParams() {
+        function handelSubmit(e){
+            e.preventDefault();
+            const userName = document.getElementById("username");
+            const userName2 = document.getElementById("password");
+             window.location.href = `${window.location.href}?name=${userName}&pass=${userName2}` 
+             console.log(27,`${window.location.href}?name=${userName}&pass=${userName2}` )           
+
+        }
+
+
+        function getURLParams(e) {
+            e.preventDefault();
             let info = []
             let url = window.location.href
             let paramString = url.split('?')[1]
@@ -29,6 +41,8 @@
             }
             document.getElementById(`username`).innerHTML += info[0]
             document.getElementById(`password`).innerHTML += info[1]
+            // console.log(32,url)
+
         }
     </script>
 </body>
@@ -36,21 +50,4 @@
 </html>
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body onload="bodyLoad()">
-    <h3> HI there </h3>
-    <p>Welcome <span id="userName"></span></p>
-    <script>
-        function bodyLoad(){
-            username = location.search
-            document.getElementById("userName").innerHTML= username.slice(username.indexOf("=")+1)  
-        }
-    </script>
-</body>
-</html> -->
+

@@ -17,7 +17,7 @@ function analyzeArray(arr) {
         frequencyMap: Object.fromEntries(frequencyMap)
     };
 }
-const result = analyzeArray(["apple", "banana", "apple", 1, 2, 1, true, true, "banana"]);
+const result = analyzeArray(["Lion", "Cat", "Lion", 1, 2, 1, true, true, "Cat"]);
 console.log(result);
 
 console.log("Task 2:");
@@ -45,9 +45,9 @@ function getDaysLeftMessage(dateStr) {
     }
 }
 
-console.log(getDaysLeftMessage("2025-08-01")); 
-console.log(getDaysLeftMessage(new Date().toISOString().split('T')[0])); 
-console.log(getDaysLeftMessage("2025-07-28")); 
+console.log("48:",getDaysLeftMessage("2025-08-01")); 
+console.log("49:",getDaysLeftMessage(new Date().toISOString().split('T')[0])); 
+console.log("50:",getDaysLeftMessage("2025-07-28")); 
 
 console.log("Task 3:");
 // Build a mini calculator that uses callbacks.
@@ -119,3 +119,39 @@ const user3 = { name: "Diapk" };
 loginUser(user3);
 
 console.log("Has Dipak been processed?", isUserProcessed(user3)); 
+
+
+
+$(document).ready(function () {
+            $("form").submit((e) =>{
+                e.preventDefault(); 
+            // jQuery $(‘input’) vs $(‘:input’) Selectors
+            // $('input').css('background-color','blue')
+            // $(':input').css('background-color','blue')
+            
+            // jQuery Checked Selector
+            // $("input:checked").each((index,element) => {
+            //     console.log(index,":",$(element).val());
+                // $(this).closest("label").css('background-color','red')
+            // })
+            
+            // Select Values of Checkbox Group with jQuery
+            $("input[name='car']:checked").each((index,element) => {
+                console.log(index,":",$(element).val());
+                // $(this).closest("label").css('background-color','red')
+
+            })
+
+        }); 
+        });
+        
+        
+        // How to get Selected Checkbox Text in jQuery
+        
+        // jQuery Selected Selector
+        // jQuery Disabled and Enabled Selector
+        // jQuery – Functions, Events and JSON
+        // jQuery Each Method
+        // jQuery Method Chaining
+        // Working with JSON Object
+        // Converting JSON Object to String and String to JSON Object
