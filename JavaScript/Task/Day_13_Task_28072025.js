@@ -77,21 +77,21 @@
 
 // Question 6
 
-// const input = "Hello How are you";
-// const reversed = input
-//   .split(" ").map((word) => word.split("").reverse().join("")).join(" ");
-// console.log(reversed);
+const input = "Hello How are you";
+const reversed = input
+  .split(" ").map((word) => word.split("").reverse().join("")).join(" ");
+console.log(reversed);
 
-// console.log("Hello How are you".replace(/\S+/g, w => w.split('').reverse().join('')));
+console.log("Hello How are you".replace(/\S+/g, w => w.split('').reverse().join('')));
 
 
-const p1 = setTimeout(function () {
-  return "Hello World 1";
-}, 3000);
-const p2 = setTimeout(function () {
-  return "Hello World 2";
-}, 1000);
-const p3 = setTimeout(function () {
-  return "Hello World 3";
-}, 2000);
+// const p1 = setTimeout(function () {
+//   return "Hello World 1";
+// }, 3000);
+// const p2 = setTimeout(function () {
+//   return "Hello World 2";
+// }, 1000);
+// const p3 = setTimeout(function () {
+//   return "Hello World 3";
+// }, 2000);
 

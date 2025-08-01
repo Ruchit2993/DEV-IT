@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <p></p>
+    <h1>Dom Manipulation using JQuery</h1>
+    <p></p>
+    <div id="box" class="border border-black">
+        <h3> This is inside the div tag inside the h3</h3>
+        <p>This are the text currently in the Div inside the p</p>
+        <button type="button" id="divBtn" class="btn btn-secondary">Secondary</button>
+    </div>
+    <p></p>
+
+    <form class="border border-black" id="sForm">
+        <p></p>
+        <label> Name </label><input type="text" id="sName" />
+        <p></p>
+        <label> Department <input type="text" id="sDpartment" /></label>
+        <p></p>
+        <label> City </label>
+        <select id="sSelect">
+            <option vlaue="india">India</option>
+            <option vlaue="sl">Shri Lanka</option>
+            <option vlaue="nepal">Nepal</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <p></p>
+    <div id="box2" class="border border-black">
+        <p></p>
+        <h3> This is inside the div tag inside the h3</h3>
+        <p>This are the text currently in the Div inside the p</p>
+        <button type="button" id="addbtn" class="btn btn-secondary">Add Class</button>
+        <button type="button" id="rembtn" class="btn btn-success">Remove Class</button>
+        <button type="button" id="tglbtn" class="btn btn-danger">Toggle Class</button>
+        <p></p>
+    </div>
+    <p></p>
+    <div id="box3" class="border border-black">
+        <p></p>
+        <h3> This is inside the div tag inside the h3</h3>
+        <p>This are the text currently in the Div inside the p</p>
+        <button type="button" id="appbtn" class="btn btn-warning">Append</button>
+        <button type="button" id="prebtn" class="btn btn-info">Prepend</button>
+        <button type="button" id="wrapbtn" class="btn btn-warning">Wrap</button>
+        <button type="button" id="unwrapbtn" class="btn btn-info">Unwrap</button>
+
+        <p></p>
+    </div>
+    <p></p>
+    <div id="box4" class="border border-black">
+        <p></p>
+        <ul>
+
+            <li> Item 2</li>
+            <li> Item 3</li>
+            <li> Item 4</li>
+
+        </ul>
+        <button type="button" id="appbtn2" class="btn btn-warning">Append</button>
+        <button type="button" id="prebtn2" class="btn btn-info">Prepend</button>
+
+        <p></p>
+    </div>
+    <p></p>
+    <div id="box5-5" class="border border-black">
+        <p></p>
+        <div id="box5" class="border border-black">
+            <p></p>
+            <h3> This is inside the div tag inside the h3</h3>
+            <p>This are the text currently in the Div inside the p</p>
+            <button type="button" id="befbtn" class="btn btn-light">Before</button>
+            <button type="button" id="aftbtn" class="btn btn-dark">After</button>
+            <p></p>
+        </div><p></p>
+        <button type="button" id="remvbtn" class="btn btn-primary">Remove</button>
+        <button type="button" id="emptbtn" class="btn btn-secondary">Empty</button>
+        <p></p>
+    </div>
+    <p></p>
+
+    <!-- <button type="button" class="btn btn-link">Link</button> -->
+    <script src="./domEvents.js"></script>
+</body>
+
+</html>

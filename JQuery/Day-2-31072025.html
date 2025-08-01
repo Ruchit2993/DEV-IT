@@ -5,8 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Input Selector</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
@@ -23,10 +21,9 @@
         <label for="city">City :</label>
         <select name="city" id="city">
             <option value="ahmedabad">Amedabad</option>
-            <option value="botad">Botad</option>
-            <option value="anand">Anand</option>
-            <option value="surat">Surat</option>
-            <option value="baroda">Baroda</option>
+            <option value="gandhinagar">Gandhinagar</option>
+            <option value="junagadh">Junagadh</option>
+            <option value="rajkot">Rajkot</option>
         </select>
         <p></p>
 
@@ -59,7 +56,7 @@
 
         <!-- Radio button  -->
         <label for="gender">Gender :</label>
-        <input type="radio" name="gender" id="male" value="male"/>
+        <input type="radio" name="gender" id="male" value="male" />
         <label for="male">Male</label>
 
         <input type="radio" name="gender" id="female" value="female" />
@@ -68,7 +65,7 @@
 
         <label for="expression">
             Calculate
-            <input type="text" name="expression" id="expression"/>
+            <input type="text" name="expression" id="expression" />
         </label>
         <p></p>
         <button type="submit" class="btn btn-secondary">Submit</button>
@@ -76,7 +73,7 @@
     <p></p>
 
     <label for="exp">Expression
-        <input type="text" name="exp" id="exp"/>
+        <input type="text" name="exp" id="exp" />
     </label>
     <button id="btn-cal">Cal </button>
 
@@ -88,77 +85,72 @@
         $("document").ready(() => {
             $("form").submit((e) => {
                 e.preventDefault();
-                // let subjects = [];
-                // let hobbies = [];
-                // $("input[name='clgsubjects']:checked").each((index, element) => {
-                //     subjects.push($(element).attr("value"));
+                let subjects = [];
+                let hobbies = [];
+                $("input[name='clgsubjects']:checked").each((index, element) => {
+                    subjects.push($(element).attr("value"));
 
-                // Select Values of Checkbox Group with jQuery
-                // $("input[name='hobbies']:checked").each((index, element) => {
-                //     hobbies.push($(element).attr("value"));
-                // });
-                // console.log(`hobbies: ${hobbies.join(",")}`);
-                // console.log(`subjects: ${subjects.join(",")}`);
+                    // Select Values of Checkbox Group with jQuery
+                    $("input[name='hobbies']:checked").each((index, element) => {
+                        hobbies.push($(element).attr("value"));
+                    });
+                    console.log(`hobbies: ${hobbies.join(",")}`);
+                    console.log(`subjects: ${subjects.join(",")}`);
 
-                // How to get Selected Checkbox Text in jQuery
-                // $("input:checked").each((index, element) => {
-                //     const name = $(element).attr("name");
-                //     const value = $(element).val();
+                    // How to get Selected Checkbox Text in jQuery
+                    $("input:checked").each((index, element) => {
+                        const name = $(element).attr("name");
+                        const value = $(element).val();
 
-                //     if (name === "clgsubjects") {
-                //         subjects.push(value);
-                //     } else if (name === "hobbies") {
-                //         hobbies.push(value);
-                //     }
+                        if (name === "clgsubjects") {
+                            subjects.push(value);
+                        } else if (name === "hobbies") {
+                            hobbies.push(value);
+                        }
 
-                //     const id = $(element).attr("id");
-                //     $(`label[for='${id}']`).css("background-color", "lightgreen");
-                // });
+                        const id = $(element).attr("id");
+                        $(`label[for='${id}']`).css("background-color", "lightgreen");
+                    });
 
-                // console.log(`subjects: ${subjects.join(",")}`);
-                // console.log(`hobbies: ${hobbies.join(",")}`);
+                    console.log(`subjects: ${subjects.join(",")}`);
+                    console.log(`hobbies: ${hobbies.join(",")}`);
 
-                // jQuery Selected Selector
-                // jQuery Each Method
-                // $("#city option:selected").each((_,element)=>{
+                    // jQuery Selected Selector
+                    // jQuery Each Method
+                    $("#city option:selected").each((_, element) => {
                     // jQuery Method Chaining
-                //     alert($(element).parent().attr("id")+" : "+$(element).attr("value"))
-                // })
+                        alert($(element).parent().attr("id") + " : " + $(element).attr("value"))
+                    })
 
-                // jQuery Disabled and Enabled Selector
-                $(":disabled").css("background-color","red");                
-                $(":enabled").css("background-color","green");
-                
-                
-                
+                    // jQuery Disabled and Enabled Selector
+                    $(":disabled").css("background-color", "red");
+                    $(":enabled").css("background-color", "green");
 
-                
-                
-            });
-            
-            // Working with JSON Object
-            const cars = [
-                {"cmpName" : "Toyota","model": "Corolla","maxSeater":5},
-                {"cmpName" : "Tata","model": "Safari","maxSeater":6},
-            ]
-            // $.each(cars,(index,cars)=>{
-                //     const asd = $("#json-result").append(cars.cmpName + " has " + cars.model + " model ")
-                //     const asd2 = $("#json-result").html(cars.cmpName + " has " + cars.model + " model ")
-                
-                // })
-                
-                let op =""
-                $.map(cars,(car,index)=>{
+                });
+
+                // Working with JSON Object
+                const cars = [
+                    { "cmpName": "Toyota", "model": "Corolla", "maxSeater": 5 },
+                    { "cmpName": "Tata", "model": "Safari", "maxSeater": 6 },
+                ]
+                $.each(cars, (index, cars) => {
+                    const asd = $("#json-result").append(cars.cmpName + " has " + cars.model + " model ")
+                    const asd2 = $("#json-result").html(cars.cmpName + " has " + cars.model + " model ")
+
+                })
+
+                let op = ""
+                $.map(cars, (car, index) => {
                     op += `${car.cmpName} has ${car.model} model  <p></p>`
                 });
                 $("#json-result").html(op).fadeOut(1000).fadeIn(1000)
-                
+
                 // jQuery – Functions, Events and JSON
-                $("#btn-cal").on("click",function () {
+                $("#btn-cal").on("click", function () {
                     const ans = eval($("#exp").val())
                     console.log(ans)
                 });
-                
+
                 // Converting JSON Object to String and String to JSON Object
                 var jsonString = JSON.stringify(cars);
                 console.log(jsonString)
@@ -166,8 +158,9 @@
                 var jsonObject = JSON.parse(jsonString);
                 console.log(jsonObject)
 
-            // jQuery Disabled and Enabled Selector
-            $(":disabled").css("background-color","blue");    
+                // jQuery Disabled and Enabled Selector
+                $(":disabled").css("background-color", "blue");
+            });
         });
     </script>
 
@@ -176,4 +169,4 @@
         crossorigin="anonymous"></script>
 </body>
 
-</html> 
+</html>

@@ -38,7 +38,7 @@
     <br /><br />
 
     <input type="text" />
-    <button id="hideBtn">Hide Input</button>
+    <button id="hideBtn">Hide Input</button>    
 
     <br /><br />
 
@@ -67,11 +67,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         // Assignment 1: Hide a Paragraph Using jQuery
-        // $(document).ready(function () {
-        //     $("button").click(function () {
-        //         $("p").hide();
-        //     });
-        // });
+        $(document).ready(function () {
+            // $("button").click(function () {
+            //     $("p").hide();
+            // });
+        });
 
         // Assignment 2: Create three paragraphs with different class, id, and element type. Add three buttons to hide each using the correct jQuery selector.
         // Hide using class selector
@@ -91,40 +91,40 @@
 
 
         // Assignment 3: Use jQuery to hide the input field that has type="text" when a button is clicked.
-        $("#hideBtn").click(function () {
-            $("input[type='text']").hide();
-        });
+        // $("#hideBtn").click(function () {
+        //     $("input[type='text']").hide();
+        // });
 
         // Assignment 4: Hide the element with ID "Test" (or any variation like "TEST", "test") using a case-insensitive selector.
-        $("#hideBtn2").click(function () {
-            $("[id]").filter(function () {
-                return $(this).attr("id").toLowerCase() === "test";
-            }).hide();
-        });
+        // $("#hideBtn2").click(function () {
+        //     $("[id]").filter(function () {
+        //         return $(this).attr("id").toLowerCase() === "test";
+        //     }).hide();
+        // });
 
         // Assignment 5: Add 2 images, 1 paragraph, and 1 link. Hide all of them using one button.
-        $("#hideAllBtn").click(function () {
-            $("img, p, a").hide();  // Select all img, p, and a elements
-        });
+        // $("#hideAllBtn").click(function () {
+        //     $("img, p, a").hide();  // Select all img, p, and a elements
+        // });
 
         // Assignment 6: Create a button. When clicked, change the text of a paragraph to "Welcome to jQuery!".
-        $("#changeTextBtn").click(function () {
-            $("#myPara").text("Welcome to jQuery!");
-        });
+        // $("#changeTextBtn").click(function () {
+        //     $("#myPara").text("Welcome to jQuery!");
+        // });
 
         // Assignment 7: Build a password input field with a toggle icon/button to show or hide the password. (try to change the attribute using jQuery)
-        $("#toggleBtn").click(function () {
-            let input = $("#passwordField");
-            let currentType = input.attr("type");
+        // $("#toggleBtn").click(function () {
+        //     let input = $("#passwordField");
+        //     let currentType = input.attr("type");
 
-            if (currentType === "password") {
-                input.attr("type", "text");
-                $(this).text("Hide");
-            } else {
-                input.attr("type", "password");
-                $(this).text("Show");
-            }
-        });
+        //     if (currentType === "password") {
+        //         input.attr("type", "text");
+        //         $(this).text("Hide");
+        //     } else {
+        //         input.attr("type", "password");
+        //         $(this).text("Show");
+        //     }
+        // });
 
     </script>
 </body>
