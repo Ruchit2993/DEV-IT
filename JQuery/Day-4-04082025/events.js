@@ -17,7 +17,7 @@
     //  - On mouse leave, revert the color.
     //  - On click, show an alert.
     $("#box3")
-    .mouseenter(function () {
+    .mouseenter(function () {   
         $(this).css("background-color", "red");
     })
     .mouseleave(function () {
@@ -70,3 +70,4 @@
     // });
 
 });
+
