@@ -29,10 +29,10 @@ $(document).ready(function(){
 
     $("#sForm").submit(function (e) { 
         e.preventDefault();
-        // let sNameVal = $("#sName").val();
-        // let sDepartmentVal = $("#sDpartment").val();
-        // let sSelectVal = $("#sSelect").val();
-        // alert("This is your name : " + sNameVal + " and your department is : "+ sDepartmentVal + " This is your City : " + sSelectVal)
+        let sNameVal = $("#sName").val();
+        let sDepartmentVal = $("#sDpartment").val();
+        let sSelectVal = $("#sSelect").val();
+        alert("This is your name : " + sNameVal + " and your department is : "+ sDepartmentVal + " This is your City : " + sSelectVal)
     
     });
     $("#sName").val("This done by .val()")
@@ -81,6 +81,9 @@ $(document).ready(function(){
     $("#remvbtn").click(function(){
         $("#box5-5").remove();
     });
+
+
+
 
 
 

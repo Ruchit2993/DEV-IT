@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .demo {
+      max-width: 900px;
+      min-height: 500px;
+      height: auto;
+      padding: 20px;
+      margin: 20px;
+      background-color: #e3e3e3;
+      line-height: 2;
+      font-size: 16px;
+      font-weight: 600;
+      font-style: italic;
+      box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.20),
+        0 14px 45px 0 rgba(0, 0, 0, 0.15);
+      ;
+    }
+
+    .demo h1,
+    p {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .btn {
+      background-color: #1c4450;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 20px 35px;
+      margin: 20px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition-duration: 0.4s;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <h1>This is the header</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat molestiae mollitia similique minima
+      laboriosam commodi, praesentium soluta! Sapiente quia a tenetur quo officiis magni, placeat facilis sint
+      distinctio temporibus, nesciunt labore, quae alias ipsum ut. Minus cupiditate ad quibusdam. Est, dolore. Incidunt
+      dolorum esse doloremque similique! Expedita, alias dolorum. Eius id amet delectus repellat corporis distinctio
+      doloribus, ea assumenda beatae praesentium nemo. Perspiciatis aliquid nemo nisi fuga totam? Unde tempora, esse et
+      assumenda quae, enim facilis odit quas consequatur, exercitationem aspernatur hic! Temporibus ducimus amet
+      laboriosam esse quasi dolore libero officiis cum voluptatum praesentium. Delectus iure tempora exercitationem
+      obcaecati.</p>
+  </div>
+  <div class="buttons">
+    <button class="btn" id="increase">Increase Font Size</button>
+    <button class="btn" id="decrease">Decrease Font Size</button>
+    <button class="btn" id="reset">Reset</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#increase').click(function () {
+        modifyFontSize('increase');
+      });
+
+      $('#decrease').click(function () {
+        modifyFontSize('decrease');
+      });
+
+      $('#reset').click(function () {
+        modifyFontSize('reset');
+      })
+
+      function modifyFontSize(action) {
+        var divElement = $('.demo');
+        var currentFontSize = parseInt(divElement.css('font-size'));
+
+        if (action == 'increase')
+          currentFontSize += 3;
+        else if (action == 'decrease')
+          currentFontSize -= 3;
+        else
+          currentFontSize = 16;
+        divElement.animate({ 'fontSize': currentFontSize }, 300);
+      }
+    });
+  </script>
+</body>
+</html> 

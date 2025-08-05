@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating Div</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      background: linear-gradient(90deg, #FDBB2D 0%, #22C1C3 100%);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    #wrap {
+      width: 860px;
+      margin: 0 auto;
+      background-color: #f1f1f1;
+
+    }
+
+    #header {
+      background-color: #234c77;
+      height: 70px;
+      text-align: center;
+      font-size: 40px;
+      line-height: 1.5em;
+      margin-top: 5px;
+      color: #fff;
+
+    }
+
+    #main {
+      float: left;
+      width: 500px;
+      padding: 10px;
+      font-size: 20px;
+      line-height: 2em;
+    }
+
+    #sidebar {
+      float: right;
+      width: 240px;
+      padding: 10px;
+    }
+
+    #floating {
+      background-color: #C00003;
+      color: #eee;
+      width: 240px;
+      height: 410px;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 22px;
+      line-height: 4em;
+    }
+
+    #non-floating {
+      background-color: #289400;
+      color: #eee;
+      width: 240px;
+      height: 110px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 22px;
+      line-height: 4em;
+    }
+
+    #footer {
+      clear: both;
+      background-color: #cc9;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 860px;
+      height: 40px;
+      text-align: center;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">Header</div>
+    <div id="main">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde veritatis vero deleniti iste quo, aperiam
+        asperiores ad voluptate tenetur nesciunt aspernatur architecto magni natus libero perspiciatis aliquid soluta
+        quis sint adipisci, laudantium officia reprehenderit amet molestias tempore. Provident nesciunt labore fugit
+        reprehenderit possimus amet ullam ipsum ut, libero incidunt quaerat. Magnam deleniti eum alias accusamus quod
+        commodi asperiores explicabo aspernatur quos consequatur a, maiores perferendis sapiente reprehenderit?
+        Exercitationem libero rerum voluptatum asperiores molestias. Assumenda illum dolorum facere fugit dolores ad
+        error quasi vitae sunt aut sapiente eius, corporis ipsa magnam laboriosam accusamus alias praesentium soluta
+        possimus totam quae. Error consequatur aspernatur hic soluta reprehenderit quibusdam, accusamus delectus eum
+        vero quas ipsam. Illum eveniet rem, eligendi nostrum laboriosam temporibus nam perspiciatis sed at, quo quod
+        quas impedit, perferendis animi sunt enim adipisci iste sequi rerum! Repudiandae ratione qui assumenda at,
+        laudantium temporibus dolorum fuga. Voluptatum veritatis exercitationem reprehenderit! Rerum ipsam ut eligendi
+        repellendus nam. Libero, quasi quo! Sapiente earum ratione debitis cum possimus doloribus fugit incidunt
+        perferendis consectetur dolor facilis recusandae nam porro veritatis magni blanditiis dicta, aliquid doloremque!
+        Itaque qui minima cupiditate quae, deserunt accusantium. Veniam libero maxime alias velit debitis tempora quas
+        voluptatum! Dolores ad libero tempora ipsum enim?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde veritatis vero deleniti iste quo, aperiam
+        asperiores ad voluptate tenetur nesciunt aspernatur architecto magni natus libero perspiciatis aliquid soluta
+        quis sint adipisci, laudantium officia reprehenderit amet molestias tempore. Provident nesciunt labore fugit
+        reprehenderit possimus amet ullam ipsum ut, libero incidunt quaerat. Magnam deleniti eum alias accusamus quod
+        commodi asperiores explicabo aspernatur quos consequatur a, maiores perferendis sapiente reprehenderit?
+        Exercitationem libero rerum voluptatum asperiores molestias. Assumenda illum dolorum facere fugit dolores ad
+        error quasi vitae sunt aut sapiente eius, corporis ipsa magnam laboriosam accusamus alias praesentium soluta
+        possimus totam quae. Error consequatur aspernatur hic soluta reprehenderit quibusdam, accusamus delectus eum
+        vero quas ipsam. Illum eveniet rem, eligendi nostrum laboriosam temporibus nam perspiciatis sed at, quo quod
+        quas impedit, perferendis animi sunt enim adipisci iste sequi rerum! Repudiandae ratione qui assumenda at,
+        laudantium temporibus dolorum fuga. Voluptatum veritatis exercitationem reprehenderit! Rerum ipsam ut eligendi
+        repellendus nam. Libero, quasi quo! Sapiente earum ratione debitis cum possimus doloribus fugit incidunt
+        perferendis consectetur dolor facilis recusandae nam porro veritatis magni blanditiis dicta, aliquid doloremque!
+        Itaque qui minima cupiditate quae, deserunt accusantium. Veniam libero maxime alias velit debitis tempora quas
+        voluptatum! Dolores ad libero tempora ipsum enim?</p>
+
+    </div>
+    <div id="sidebar">
+      <div id="non-floating">Regular DIV</div>
+      <div id="floating">Floating DIV</div>
+    </div>
+    <div id="footer">Footer</div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var floatingDiv = $("#floating");
+      var floatingDivPosition = floatingDiv.position();
+      $(window).scroll(function () {
+        var scrollPosition = $(window).scrollTop();
+        if (scrollPosition >= floatingDivPosition.top) {
+          floatingDiv.css({
+            'position': 'fixed',
+            'top': 3
+          });
+        } else {
+          floatingDiv.css({
+            'position': 'relative',
+            'top': 0
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

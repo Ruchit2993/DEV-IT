@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style>
+    body {
+      background-color: rgb(226, 225, 225);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      padding: 30px;
+      text-align: center;
+      text-transform: capitalize;
+      font-style: italic;
+    }
+
+    .btn {
+      background-color: #1c4450;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 20px 35px;
+      margin: 20px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition-duration: 0.4s;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    div {
+      width: 400px;
+      height: 40px;
+      padding: 100px 0;
+      margin: 10px 0;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 400;
+      border-radius: 20px;
+      border: 1px solid #000;
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      position: relative;
+    }
+
+    .test1 {
+      background-color: rgb(152, 255, 203);
+    }
+
+    .test2 {
+      background-color: rgb(255, 253, 140);
+    }
+
+    p {
+      margin: 20px;
+      font-weight: bold;
+      font-size: 30px;
+      text-align: center;
+      font-style: oblique;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>jQuery Animate Function</h1>
+  <div class="test1">Hey! Beautiful People!!</div>
+  <div class="test2">Hey! You are awesome!!</div>
+  <button class="btn">Click to Animate The DIV</button>
+  <p id="result"></p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+
+    $(document).ready(function () {
+      $("button").click(function () {
+        $("div.test1")
+          .animate({ left: "200px" }, 1500)
+          .animate({ fontSize: "24px" }, 1500)
+          .animate({ fontWeight: "800" }, 1500)
+          .animate({ borderWidth: "5px" }, 1500)
+        $("div.test2")
+          .animate({ left: "200px" }, 1500)
+          .animate({ fontSize: "24px" }, 1500)
+          .animate({ fontWeight: "800" }, 1500)
+          .animate({ borderWidth: "5px" }, 1500)
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+        body {
+            background-color: rgb(226, 225, 225);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            padding: 30px;
+            text-align: center;
+            text-transform: capitalize;
+            font-style: italic;
+        }
+
+        .outerDiv {
+            margin: 20px auto;
+            padding: 0;
+            width: 800px;
+            height: 40px;
+            overflow: hidden;
+            background: #e5e5e5;
+            border-radius: 6px;
+            border: 2px solid #000;
+        }
+
+        .innerDiv {
+            padding: 8px 0;
+            height: 90%;
+            width: 0;
+            background: rgb(87, 181, 243);
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+            border-radius: 6px;
+        }
+
+        select {
+            padding: 5px 8px;
+            margin: 10px auto;
+            width: 130%;
+            border: none;
+            font-size: 20px;
+            width: 80px;
+            cursor: pointer;
+            font-style: italic;
+        }
+
+        label {
+            font-size: 24px;
+
+        }
+
+        input[type="button"] {
+            background-color: #234d69;
+            border: none;
+            color: #fff;
+            padding: 20px 35px;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 24px;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery Progress Bar</h1>
+    <label for="percentage">Select Percentage :
+
+        <select id="percentage">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="60">60</option>
+            <option value="70">70</option>
+            <option value="80">80</option>
+            <option value="90">90</option>
+            <option value="100">100</option>
+        </select>
+    </label>
+
+    <div class="outerDiv">
+        <div class="innerDiv">
+        </div>
+    </div>
+    <!-- <input type="button" id="myButton" value="Start Animation" /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var currentPercentage = 0;
+            var previousPercenage = 0;
+            $('#percentage').change(function () {
+                previousPercenage = currentPercentage;
+                currentPercentage = $('#percentage').val();
+                animateProgressBar(previousPercenage, currentPercentage);
+            });
+
+            function animateProgressBar(previousPercenage, currentPercentage) {
+                $('.innerDiv').animate({
+                    'width': (800 * currentPercentage) / 100
+                }, 1000);
+                $({ counter: previousPercenage }).animate({ counter: currentPercentage }, {
+                    duration: 1000,
+                    step: function () {
+                        // $('.innerDiv').text(Math.ceil(this.counter) + ' %');
+                        $('.innerDiv').text(Math.round(this.counter) + ' %');
+                        // $('.innerDiv').text(Math.ceil((now / 800) * 100) + ' %')
+                    }
+                })
+            }
+            // function animateProgressBar(currentPercentage) {
+            //     $(".innerDiv").animate({ "width": (currentPercentage * 800) / 100 }, {
+            //         duration: 1000,
+            //         step: function (now) {
+            //             $(".innerDiv").text(Math.ceil((now / 800) * 100) + ' %');
+            //         }
+            //     });
+            // }
+        });
+    </script>
+</body>
+
+</html>
