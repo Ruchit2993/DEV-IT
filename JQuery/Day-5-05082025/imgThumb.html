@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
@@ -119,10 +120,6 @@
 </head>
 
 <body>
-        <div class="toolbox">
-                <input id="btnStartSlideShow" type="button" value="Start" />
-                <input id="btnStopSlideShow" type="button" value="Stop" />
-        </div>
         <div class="container">
                 <img id="mainImg" src="./img6.jpg">
                 <ul>
@@ -137,10 +134,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
                 $(document).ready(function () {
-                        var imageURLs = new Array();
+                        var imageURLs = [];
                         var intervalId;
-                        var btnStart = $('#btnStartSlideShow');
-                        var btnStop = $('#btnStopSlideShow');
 
                         $('ul img').each(function () {
                                 imageURLs.push($(this).attr('src'));
@@ -150,25 +145,16 @@
                                 var mainImageElement = $('#mainImg');
                                 var currentImageURL = mainImageElement.attr('src');
                                 var currentImageIndex = $.inArray(currentImageURL, imageURLs);
-                                if (currentImageIndex == (imageURLs.length - 1)) {
+                                if (currentImageIndex === (imageURLs.length - 1)) {
                                         currentImageIndex = -1;
                                 }
-
-                                mainImageElement.attr('src', imageURLs[currentImageIndex + 1])
+                                mainImageElement.attr('src', imageURLs[currentImageIndex + 1]);
                         }
 
-                        btnStart.click(function () {
-                                intervalId = setInterval(setImage, 500);
-                                $(this).attr('disabled', 'disabled');
-                                btnStop.removeAttr('disabled');
-                        });
-
-                        btnStop.click(function () {
-                                clearInterval(intervalId);
-                                $(this).attr('disabled', 'disabled');
-                                btnStart.removeAttr('disabled');
-                        }).attr('disabled', 'disabled');
+                        intervalId = setInterval(setImage, 4000);
                 });
         </script>
+
 </body>
+
 </html>
