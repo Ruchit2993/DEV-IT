@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Profile - Bootstrap Only</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <nav class="container py-3">
+    <div class="row">
+      <div class="col-md-8">
+        <small class="text-muted">Home / My Account</small>
+      </div>
+      <div class="col-md-4 text-end">
+        <small class="text-muted">Welcome! <span class="text-danger">Md Rimel</span></small>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3">
+        <h6 class="mb-3 mt-4 fw-bold">Manage My Account</h6>
+        <ul class="nav flex-column mb-4">
+          <li class="nav-item">
+            <a class="nav-link active text-danger" href="#">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="#">Address Book</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="#">My Payment Options</a>
+          </li>
+        </ul>
+        <h6 class="mb-3 fw-bold">My Orders</h6>
+        <ul class="nav flex-column mb-4">
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="#">My Returns</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="#">My Cancellations</a>
+          </li>
+        </ul>
+        <h6 class="mb-3 fw-bold">My WishList</h6>
+      </div>
+      <!-- Edit Profile -->
+      <div class="col-md-9 mt-4">
+        <h5 class="mb-4 text-danger fw-bold">Edit Your Profile</h5>
+        <form>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" value="Md" readonly>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" value="Rimel" readonly>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" value="rimel111@gmail.com" readonly>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Address</label>
+              <input type="text" class="form-control" value="Kingston, 5236, United State" readonly>
+            </div>
+          </div>
+          <div class="mb-3">
+            <span class="fw-bold">Password Changes</span>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="Current Passwod">
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="New Passwod">
+          </div>
+          <div class="mb-4">
+            <input type="password" class="form-control" placeholder="Confirm New Passwod">
+          </div>
+          <div class="d-flex justify-content-end gap-2">
+            <button type="button" class="btn btn-link text-secondary">Cancel</button>
+            <button type="submit" class="btn btn-danger">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+    
