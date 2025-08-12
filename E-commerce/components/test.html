@@ -12,7 +12,7 @@
         <form id="myForm">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" value="emily" required>
+                <input type="text" class="form-control" id="username" value="emilys" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
@@ -32,43 +32,64 @@
         myForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
 
-            // First, attempt to login
-            fetch('https://dummyjson.com/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: username,
-                    password: password,
-                    expiresInMins: 30
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data && data.token) {
-                    alert('Login successful! Token: ' + data.token);
-                    // After successful login, fetch user profile
-                    return fetch('https://dummyjson.com/auth/me', {
-                        method: 'GET',
-                        headers: {
-                            'Authorization': `Bearer ${data.token}`
+            // Log the request payload
+            console.log('Sending login request with:', { username, password });
+
+            // Step 1: Attempt to login using XMLHttpRequest
+            const loginXhr = new XMLHttpRequest();
+            loginXhr.open('POST', 'https://dummyjson.com/auth/login', true);
+            loginXhr.setRequestHeader('Content-Type', 'application/json');
+
+            loginXhr.onreadystatechange = function () {
+                if (loginXhr.readyState === XMLHttpRequest.DONE) {
+                    console.log('Login response status:', loginXhr.status);
+                    try {
+                        const data = JSON.parse(loginXhr.responseText);
+                        if (loginXhr.status === 200 && data.accessToken) {
+                            // Step 2: Fetch user profile using XMLHttpRequest
+                            const profileXhr = new XMLHttpRequest();
+                            profileXhr.open('GET', 'https://dummyjson.com/auth/me', true);
+                            profileXhr.setRequestHeader('Authorization', `Bearer ${data.accessToken}`);
+
+                            profileXhr.onreadystatechange = function () {
+                                if (profileXhr.readyState === XMLHttpRequest.DONE) {
+                                    console.log('Profile response status:', profileXhr.status);
+                                    try {
+                                        const profileData = JSON.parse(profileXhr.responseText);
+                                        if (profileXhr.status === 200) {
+                                            console.log('User Profile:', profileData);
+                                            alert('Logged in successfully! Check console for profile details.');
+                                        } else {
+                                            throw new Error(profileData.message || 'Failed to fetch profile');
+                                        }
+                                    } catch (error) {
+                                        console.error('Error:', error.message);
+                                        alert(`An error occurred: ${error.message}`);
+                                        console.log('Try alternative credentials: username: michaelw, password: michaelwpass');
+                                    }
+                                }
+                            };
+
+                            profileXhr.send();
+                        } else {
+                            throw new Error(data.message || 'Invalid response from server');
                         }
-                    });
-                } else {
-                    throw new Error(data.message || 'Invalid credentials');
+                    } catch (error) {
+                        console.error('Error:', error.message);
+                        alert(`An error occurred: ${error.message}`);
+                        console.log('Try alternative credentials: username: michaelw, password: michaelwpass');
+                    }
                 }
-            })
-            .then(res => res.json())
-            .then(profile => {
-                console.log('User Profile:', profile);
-                alert('Profile fetched successfully! Check console for details.');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred: ' + error.message);
-            });
+            };
+
+            loginXhr.send(JSON.stringify({
+                username: username,
+                password: password,
+                expiresInMins: 30
+            }));
         });
     </script>
 </body>
