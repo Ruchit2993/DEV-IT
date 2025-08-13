@@ -39,7 +39,6 @@
     "price": 200,
     "rating": 4,
     "reviews": 25,
-    "isNew": true,
     "colors": ["red", "yellow"]
   },
   {
@@ -58,8 +57,7 @@
     "price": 50,
     "rating": 4,
     "reviews": 25,
-    "isNew": true,
-    "colors": ["red", "black"]
+    "colors": ["black", "red"]
   },
   {
     "id": 8,
@@ -68,6 +66,6 @@
     "price": 120,
     "rating": 4,
     "reviews": 25,
-    "colors": ["green", "black"]
+    "colors": ["black", "yellow"]
   }
 ]

@@ -15,7 +15,7 @@
   <!-- Breadcrumb -->
   <nav aria-label="breadcrumb" class="mb-4">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../components/test-2.html" class="text-muted text-decoration-none">Home</a></li>
+      <li class="breadcrumb-item"><a href="#" class="text-muted text-decoration-none">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">Cart</li>
     </ol>
   </nav>
@@ -69,7 +69,7 @@
           <span>Total:</span>
           <span id="total">$0</span>
         </div>
-        <button class="btn btn-danger w-100" id="process-checkout">Process to checkout</button>
+        <button class="btn btn-danger w-100">Process to checkout</button>
       </div>
     </div>
   </div>
@@ -168,15 +168,19 @@
                   const row = document.createElement('tr');
                   row.innerHTML = `
                       <td class="d-flex align-items-center">
-                          <button type="button" class="btn btn-danger btn-sm rounded-circle me-3 remove-item" style="width: 30px; height: 30px; line-height: 30px; text-align: center; padding: 0;" data-id="${product.id}">
+                          <button type="button" class="btn btn-danger btn-sm rounded-circle me-2 remove-item p-0" data-id="${product.id}">
                               <span aria-hidden="true">&times;</span>
                           </button>
-                          <img src="${product.image}" alt="${product.name}" class="img-fluid rounded me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                          <img src="${product.image}" alt="${product.name}" width="40" height="40" class="me-2">
                           ${product.name}
                       </td>
                       <td>$${product.price}</td>
                       <td>
-                          <input type="number" class="form-control text-center" min="1" max="99" value="1" style="width: 60px;" inputmode="numeric" data-id="${product.id}">
+                          <div class="input-group input-group-sm w-auto">
+                              <button class="btn btn-outline-secondary decrement" type="button">-</button>
+                              <input type="text" class="form-control text-center quantity" value="1" style="width: 40px;" data-id="${product.id}">
+                              <button class="btn btn-outline-secondary increment" type="button">+</button>
+                          </div>
                       </td>
                       <td class="subtotal" data-id="${product.id}">$${product.price}</td>
                   `;
@@ -187,17 +191,36 @@
                   const cartItems = JSON.parse(localStorage.getItem('cartItems') || '{}');
                   if (cartItems[id]) {
                       quantity = cartItems[id];
-                      row.querySelector('input').value = quantity;
+                      row.querySelector('.quantity').value = quantity;
                       const subtotal = product.price * quantity;
                       row.querySelector('.subtotal').textContent = `$${subtotal}`;
                       totalAmount += (subtotal - product.price); // Adjust the total
                   }
 
-                  // Quantity change event
-                  row.querySelector('input').addEventListener('change', function () {
+                  // Quantity controls
+                  row.querySelector('.increment').addEventListener('click', function () {
+                      quantity++;
+                      row.querySelector('.quantity').value = quantity;
+                      const subtotal = product.price * quantity;
+                      row.querySelector('.subtotal').textContent = `$${subtotal}`;
+                      updateCartTotal();
+                      saveCartItem(id, quantity);
+                  });
+
+                  row.querySelector('.decrement').addEventListener('click', function () {
+                      if (quantity > 1) {
+                          quantity--;
+                          row.querySelector('.quantity').value = quantity;
+                          const subtotal = product.price * quantity;
+                          row.querySelector('.subtotal').textContent = `$${subtotal}`;
+                          updateCartTotal();
+                          saveCartItem(id, quantity);
+                      }
+                  });
+
+                  row.querySelector('.quantity').addEventListener('change', function () {
                       quantity = parseInt(this.value) || 1;
                       if (quantity < 1) quantity = 1;
-                      if (quantity > 99) quantity = 99;
                       this.value = quantity;
                       const subtotal = product.price * quantity;
                       row.querySelector('.subtotal').textContent = `$${subtotal}`;
@@ -266,24 +289,10 @@
           let total = parseFloat(document.getElementById('total').textContent.replace('$', ''));
           total *= 0.9; // 10% discount
           document.getElementById('total').textContent = `$${total.toFixed(0)}`;
-          // Save the discounted total to localStorage
-          localStorage.setItem('cartTotal', total.toFixed(0));
           alert('Coupon applied! 10% discount added.');
       } else {
           alert('Invalid coupon code.');
       }
-  });
-
-  // Process to checkout redirect
-  document.getElementById('process-checkout').addEventListener('click', function () {
-      // Ensure cart data is saved before redirect
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      const cartItems = JSON.parse(localStorage.getItem('cartItems') || '{}');
-      const total = document.getElementById('total').textContent.replace('$', '');
-      localStorage.setItem('cart', JSON.stringify(cart));
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-      localStorage.setItem('cartTotal', total);
-      window.location.href = '../components/check-out.html';
   });
 </script>
 </body>

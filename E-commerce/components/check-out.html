@@ -6,9 +6,12 @@
     <title>Checkout Page</title>
     <!-- Bootstrap CSS CDN -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
+
+    <div id="headerNew-placeholder" class="sticky-top"></div>
 
     <div class="container mt-5">
         <nav aria-label="breadcrumb">
@@ -24,34 +27,34 @@
         <div class="row">
             <div class="col-md-7">
                 <h3>Billing Details</h3>
-                <form>
+                <form id="billing-form">
                     <div class="form-group">
                         <label>First Name<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" id="first-name" required>
                     </div>
                     <div class="form-group">
                         <label>Company Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="company-name">
                     </div>
                     <div class="form-group">
                         <label>Street Address<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" id="street-address" required>
                     </div>
                     <div class="form-group">
                         <label>Apartment, floor, etc. (optional)</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="apartment">
                     </div>
                     <div class="form-group">
                         <label>Town/City<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" id="town-city" required>
                     </div>
                     <div class="form-group">
                         <label>Phone Number<span class="text-danger">*</span></label>
-                        <input type="tel" class="form-control" required>
+                        <input type="tel" class="form-control" id="phone-number" required>
                     </div>
                     <div class="form-group">
                         <label>Email Address<span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" required>
+                        <input type="email" class="form-control" id="email-address" required>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="saveInfo" checked>
@@ -62,22 +65,13 @@
                 </form>
             </div>
             <div class="col-md-5">
-                <div class="mb-3">
-                    <div class="d-flex align-items-center">
-                        <img src="../assets/monitor.png" alt="LCD Monitor" class="mr-2 img-fluid" style="width: 50px;">
-                        <span>LCD Monitor</span>
-                        <span class="ml-auto">$650</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <img src="../assets/controller-2.png" alt="Gamepad" class="mr-2 img-fluid" style="width: 50px;">
-                        <span>H1 Gamepad</span>
-                        <span class="ml-auto">$1100</span>
-                    </div>
+                <div id="order-summary" class="mb-3">
+                    <!-- Dynamic order summary will be inserted here -->
                 </div>
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Subtotal:</span>
-                        <strong>$1750</strong>
+                        <strong id="subtotal">$0</strong>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Shipping:</span>
@@ -85,7 +79,7 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total:</span>
-                        <strong>$1750</strong>
+                        <strong id="total">$0</strong>
                     </li>
                 </ul>
 
@@ -98,12 +92,13 @@
                                 Bank
                             </label>
                         </div>
-                        <div class="mt-2 col col-6">
-                            <img src="../assets/b-bkash.png" height="24" alt="bkash">
-                            <img src="../assets/b-visa.png" height="24" alt="visa">
-                            <img src="../assets/b-mastercard.png" height="24" alt="mastercard">
+                        <div class="d-flex align-items-center mt-2">
+                            <img src="../assets/b-bkash.png" height="24" alt="bkash" class="mr-2">
+                            <img src="../assets/b-visa.png" height="24" alt="visa" class="mr-2">
+                            <img src="../assets/b-mastercard.png" height="24" alt="mastercard" class="mr-2">
                             <img src="../assets/b-netram.png" height="24" alt="netram">
                         </div>
+
                     </div>
                     <div class="form-check row">
                         <input class="form-check-input" type="radio" name="payment" id="cod" value="cod" checked>
@@ -123,7 +118,7 @@
                 </div>
                 <div class="mb-3 row">
                     <div class="col col-6">
-                        <button type="button" class="btn btn-danger btn-block">Place Order</button>
+                        <button type="button" class="btn btn-danger btn-block" id="place-order">Place Order</button>
                     </div>
                 </div>
 
@@ -131,9 +126,136 @@
         </div>
     </div>
 
+    <div id="footer-placeholder"></div>
+
     <!-- Bootstrap JS dependencies (optional, for interactive components) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Header fetch
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('headerNew.html')
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to fetch headerNew.html: ${response.statusText}`);
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('headerNew-placeholder').innerHTML = data;
+                    updateBadges();
+                })
+                .catch(error => console.error('Error fetching header:', error.message));
+        });
+
+        // Footer fetch
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('footer.html')
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to fetch footer.html: ${response.statusText}`);
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error fetching footer:', error.message));
+        });
+
+        // Function to update badges in header
+        function updateBadges() {
+            const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+            const heartLink = document.querySelector('.nav-link .bi-heart').parentNode;
+            let favoriteBadge = heartLink.querySelector('.badge');
+            if (!favoriteBadge) {
+                favoriteBadge = document.createElement('span');
+                favoriteBadge.className = 'badge bg-danger rounded-pill position-absolute';
+                favoriteBadge.style = 'top: -5px; right: -5px;';
+                heartLink.appendChild(favoriteBadge);
+            }
+            favoriteBadge.innerText = favorites.length > 0 ? favorites.length : '';
+
+            const cartLink = document.querySelector('.nav-link .bi-cart3').parentNode;
+            let cartBadge = cartLink.querySelector('.badge');
+            if (!cartBadge) {
+                cartBadge = document.createElement('span');
+                cartBadge.className = 'badge bg-danger rounded-pill position-absolute';
+                cartBadge.style = 'top: -5px; right: -5px;';
+                cartLink.appendChild(cartBadge);
+            }
+            cartBadge.innerText = cart.length > 0 ? cart.length : '';
+        }
+
+        // Fetch JSON data and populate products
+        function loadProducts() {
+            return new Promise((resolve, reject) => {
+                const storedProducts = localStorage.getItem('products');
+                if (storedProducts) {
+                    resolve(JSON.parse(storedProducts));
+                } else {
+                    fetch('products.json')
+                        .then(response => {
+                            if (!response.ok) throw new Error(`Failed to fetch products.json: ${response.statusText}`);
+                            return response.json();
+                        })
+                        .then(data => {
+                            localStorage.setItem('products', JSON.stringify(data));
+                            resolve(data);
+                        })
+                        .catch(error => reject(error));
+                }
+            });
+        }
+
+        // Populate order summary
+        function populateOrderSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartItems = JSON.parse(localStorage.getItem('cartItems') || '{}');
+            loadProducts().then(products => {
+                const orderSummary = document.getElementById('order-summary');
+                orderSummary.innerHTML = '';
+                let subtotal = 0;
+
+                cart.forEach(id => {
+                    const product = products.find(p => p.id === id);
+                    if (product) {
+                        const quantity = cartItems[id] || 1;
+                        const itemSubtotal = product.price * quantity;
+                        subtotal += itemSubtotal;
+                        const summaryItem = `
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="${product.image}" alt="${product.name}" class="mr-2 img-fluid" style="width: 50px;">
+                                <span>${product.name}</span>
+                                <span class="ml-auto">$${itemSubtotal}</span>
+                            </div>
+                        `;
+                        orderSummary.innerHTML += summaryItem;
+                    }
+                });
+
+                document.getElementById('subtotal').innerText = `$${subtotal}`;
+                document.getElementById('total').innerText = `$${subtotal}`;
+            });
+        }
+
+        // Save billing details to localStorage
+        document.getElementById('place-order').addEventListener('click', function () {
+            const billingDetails = {
+                firstName: document.getElementById('first-name').value,
+                companyName: document.getElementById('company-name').value,
+                streetAddress: document.getElementById('street-address').value,
+                apartment: document.getElementById('apartment').value,
+                townCity: document.getElementById('town-city').value,
+                phoneNumber: document.getElementById('phone-number').value,
+                emailAddress: document.getElementById('email-address').value,
+                saveInfo: document.getElementById('saveInfo').checked
+            };
+            localStorage.setItem('billingDetails', JSON.stringify(billingDetails));
+            alert('Order placed and billing details saved!');
+        });
+
+        // Load order summary on page load
+        document.addEventListener('DOMContentLoaded', populateOrderSummary);
+    </script>
 </body>
 
 </html>
