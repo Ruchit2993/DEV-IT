@@ -1,4 +1,4 @@
-// Header fetch
+//Header fetch
 document.addEventListener("DOMContentLoaded", function () {
     fetch('../E-commerce/components/header.html')
         .then(response => {
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error fetching header:', error.message));
 });
 
-// Login fetch and attach login script with localStorage storage
+//Login fetch abd saving login details in localStorage
 document.addEventListener("DOMContentLoaded", function () {
     fetch('../E-commerce/components/login.html')
         .then(response => {
@@ -28,16 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     const username = document.getElementById('username').value.trim();
                     const password = document.getElementById('password').value.trim();
 
-                    // Validate inputs
                     if (!username || !password) {
                         alert('Please enter both username and password.');
                         return;
                     }
 
-                    // Log the request payload
                     console.log('Sending login request with:', { username, password });
 
-                    // Step 1: Attempt to login using XMLHttpRequest
                     const loginXhr = new XMLHttpRequest();
                     loginXhr.open('POST', 'https://dummyjson.com/auth/login', true);
                     loginXhr.setRequestHeader('Content-Type', 'application/json');
@@ -111,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error fetching login:', error.message));
 });
 
-// Footer fetch
+//Footer fetch
 document.addEventListener("DOMContentLoaded", function () {
     fetch('../E-commerce/components/footer.html')
         .then(response => {

@@ -1,4 +1,4 @@
-// Header fetch
+//Header fetch
 document.addEventListener("DOMContentLoaded", function () {
     fetch('./headerNew.html')
         .then(response => {
@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(data => {
             document.getElementById('headerNew-placeholder').innerHTML = data;
-            updateBadges(); // Update badges after header is loaded
+            updateBadges();
         })
         .catch(error => console.error('Error fetching header:', error.message));
 });
 
-// Footer fetch
+//Footer fetch
 document.addEventListener("DOMContentLoaded", function () {
     fetch('./footer.html')
         .then(response => {
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error fetching footer:', error.message));
 });
 
-// Function to generate star icons based on rating
+//Function to generate star icons based on rating
 function generateStars(rating) {
     let stars = '';
     for (let i = 1; i <= 5; i++) {
@@ -34,7 +34,7 @@ function generateStars(rating) {
     return stars;
 }
 
-// Helper: Map JSON color names to Bootstrap background classes
+//mapping radio btn to get color
 function getBootstrapColorClass(color) {
     const colorMap = {
         red: 'bg-danger',
@@ -42,12 +42,11 @@ function getBootstrapColorClass(color) {
         black: 'bg-dark',
         blue: 'bg-primary',
         green: 'bg-success'
-        // add more mappings if needed
     };
     return colorMap[color.toLowerCase()] || '';
 }
 
-// Updated Function to generate color options dynamically from product data
+//radio btn propogation color wise
 function generateColors(product) {
     if (!product.colors || product.colors.length === 0) return '';
 
@@ -68,7 +67,7 @@ function generateColors(product) {
     `;
 }
 
-// Function to update badges in header
+//update badges in header
 function updateBadges() {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -84,7 +83,6 @@ function updateBadges() {
     }
     favoriteBadge.innerText = favorites.length > 0 ? favorites.length : '';
 
-    // Find cart icon link
     const cartLink = document.querySelector('.nav-link .bi-cart3').parentNode;
     let cartBadge = cartLink.querySelector('.badge');
     if (!cartBadge) {
@@ -96,7 +94,7 @@ function updateBadges() {
     cartBadge.innerText = cart.length > 0 ? cart.length : '';
 }
 
-// Fetch JSON data and populate products, saving to localStorage
+//Fetch JSON data and populate products, saving to localStorage
 function loadProducts() {
     return new Promise((resolve, reject) => {
         const storedProducts = localStorage.getItem('products');
@@ -169,7 +167,7 @@ loadProducts()
             productRow.innerHTML += card;
         });
 
-        // Hover effects
+        //Hover effects
         document.addEventListener('mouseover', function (e) {
             if (e.target.closest('.product-card')) {
                 const card = e.target.closest('.product-card');
@@ -217,9 +215,7 @@ loadProducts()
                     cart.push(productId);
                     localStorage.setItem('cart', JSON.stringify(cart));
                     updateBadges();
-                    alert('Added "' + name + '" to cart.');
                 } else {
-                    alert('Already in cart.');
                 }
             } else if (e.target.classList.contains('bi-heart') || e.target.classList.contains('bi-heart-fill')) {
                 const card = e.target.closest('.product-card');
