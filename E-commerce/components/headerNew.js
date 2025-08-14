@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (logoutLink) {
         logoutLink.addEventListener('click', function (e) {
             e.preventDefault();
-            // Clearing localStorage
             localStorage.removeItem('loginResponse');
             localStorage.removeItem('cartTotal');
             localStorage.removeItem('cart');
             localStorage.removeItem('cartItems');
-            window.location.href = '/E-commerce/index.html';
+            window.location.href = '/E-commerce/';
         });
     }
 });
