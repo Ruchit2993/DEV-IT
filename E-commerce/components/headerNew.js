@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.removeItem('cartTotal');
             localStorage.removeItem('cart');
             localStorage.removeItem('cartItems');
-            window.location.href = '/E-commerce/';
+            window.location.href = '/E-commerce/index.html';
         });
     }
 });
