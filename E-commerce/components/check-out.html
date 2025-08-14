@@ -77,6 +77,10 @@
                         <span>Shipping:</span>
                         <strong>Free</strong>
                     </li>
+                    <li class="list-group-item d-flex justify-content-between" id="discount-row" style="display: none;">
+                        <span>Discount (30%):</span>
+                        <strong id="discount-amount">$0</strong>
+                    </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total:</span>
                         <strong id="total">$0</strong>
@@ -84,8 +88,7 @@
                 </ul>
 
                 <div class="mb-3 col">
-                    <div class=" row row-cols-6 row">
-
+                    <div class="row row-cols-6">
                         <div class="form-check col col-6">
                             <input class="form-check-input" type="radio" name="payment" id="bank" value="bank">
                             <label class="form-check-label" for="bank">
@@ -98,7 +101,6 @@
                             <img src="../assets/b-mastercard.png" height="24" alt="mastercard" class="mr-2">
                             <img src="../assets/b-netram.png" height="24" alt="netram">
                         </div>
-
                     </div>
                     <div class="form-check row">
                         <input class="form-check-input" type="radio" name="payment" id="cod" value="cod" checked>
@@ -108,12 +110,12 @@
                     </div>
                 </div>
 
-                <div class="mb-3 row">
+                <div class="mb-3 row" id="coupon-section">
                     <div class="input-group col col-8">
-                        <input type="text" class="form-control" placeholder="Coupon Code">
+                        <input type="text" class="form-control" id="coupon-code" placeholder="Coupon Code">
                     </div>
                     <div class="input-group-append col col-4">
-                        <button class="btn btn-danger" type="button">Apply Coupon</button>
+                        <button class="btn btn-danger" type="button" id="apply-coupon">Apply Coupon</button>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -121,7 +123,6 @@
                         <button type="button" class="btn btn-danger btn-block" id="place-order">Place Order</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -232,10 +233,56 @@
                     }
                 });
 
-                document.getElementById('subtotal').innerText = `$${subtotal}`;
-                document.getElementById('total').innerText = `$${subtotal}`;
+                // Check if discount was applied from cart
+                const cartTotal = parseFloat(localStorage.getItem('cartTotal') || subtotal);
+                const discountApplied = subtotal !== cartTotal;
+                if (discountApplied) {
+                    const discount = subtotal - cartTotal;
+                    document.getElementById('discount-row').style.display = 'flex';
+                    document.getElementById('discount-amount').innerText = `$${discount.toFixed(0)}`;
+                    document.getElementById('subtotal').innerText = `$${subtotal}`;
+                    document.getElementById('total').innerText = `$${cartTotal}`;
+                    document.getElementById('coupon-section').style.display = 'none'; // Disable coupon input
+                } else {
+                    document.getElementById('subtotal').innerText = `$${subtotal}`;
+                    document.getElementById('total').innerText = `$${subtotal}`;
+                    document.getElementById('discount-row').style.display = 'none';
+                    document.getElementById('coupon-section').style.display = 'block';
+                }
             });
         }
+
+        // Apply coupon logic
+        document.getElementById('apply-coupon').addEventListener('click', function () {
+            const couponCodeInput = document.getElementById('coupon-code').value;
+            const loginResponse = JSON.parse(localStorage.getItem('loginResponse') || '{}');
+            const firstName = loginResponse.profile ? loginResponse.profile.firstName.slice(0, 4).toUpperCase() : '';
+
+            // Get current date
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth() + 1; // January is 0
+            const financialYear = currentMonth >= 4 ? `${currentYear.toString().slice(-2)}${(currentYear + 1).toString().slice(-2)}` : `${(currentYear - 1).toString().slice(-2)}${currentYear.toString().slice(-2)}`;
+            const monthAbbr = now.toLocaleString('default', { month: 'short' }).toUpperCase();
+
+            // Generate coupon code
+            const generatedCoupon = `${firstName}DEVIT${financialYear}${monthAbbr}`;
+
+            if (couponCodeInput === generatedCoupon) {
+                const subtotal = parseFloat(document.getElementById('subtotal').innerText.replace('$', ''));
+                const discount = subtotal * 0.3; // 30% discount
+                const total = subtotal - discount;
+
+                document.getElementById('discount-row').style.display = 'flex';
+                document.getElementById('discount-amount').innerText = `$${discount.toFixed(0)}`;
+                document.getElementById('total').innerText = `$${total.toFixed(0)}`;
+                localStorage.setItem('cartTotal', total.toFixed(0));
+                document.getElementById('coupon-section').style.display = 'none'; // Disable coupon input after applying
+                alert('Coupon applied! 30% discount added.');
+            } else {
+                alert('Invalid coupon code. Please try again with a valid code.');
+            }
+        });
 
         // Save billing details to localStorage
         document.getElementById('place-order').addEventListener('click', function () {

@@ -64,6 +64,10 @@
           <span>Shipping:</span>
           <span id="shipping">Free</span>
         </div>
+        <div class="d-flex justify-content-between mb-2" id="discount-row" style="display: none;">
+          <span>Discount (30%):</span>
+          <span id="discount-amount">$0</span>
+        </div>
         <hr>
         <div class="d-flex justify-content-between mb-3">
           <span>Total:</span>
@@ -240,6 +244,9 @@
           document.getElementById('subtotal').textContent = `$${subtotal}`;
           document.getElementById('shipping').textContent = subtotal > 0 ? 'Free' : '$0';
           document.getElementById('total').textContent = `$${subtotal}`;
+          // Reset discount if subtotal changes
+          document.getElementById('discount-row').style.display = 'none';
+          document.getElementById('discount-amount').textContent = '$0';
       });
   }
 
@@ -259,24 +266,39 @@
   document.addEventListener('DOMContentLoaded', updateCart);
   document.getElementById('update-cart').addEventListener('click', updateCart);
 
-  // Apply coupon (basic functionality)
+  // Apply coupon with dynamic code generation
   document.getElementById('apply-coupon').addEventListener('click', function () {
-      const couponCode = document.getElementById('coupon-code').value;
-      if (couponCode === 'DISCOUNT10') {
-          let total = parseFloat(document.getElementById('total').textContent.replace('$', ''));
-          total *= 0.9; // 10% discount
+      const couponCodeInput = document.getElementById('coupon-code').value;
+      const loginResponse = JSON.parse(localStorage.getItem('loginResponse') || '{}');
+      const firstName = loginResponse.profile ? loginResponse.profile.firstName.slice(0, 4).toUpperCase() : '';
+
+      // Get current date
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth() + 1; // January is 0
+      const financialYear = currentMonth >= 4 ? `${currentYear.toString().slice(-2)}${(currentYear + 1).toString().slice(-2)}` : `${(currentYear - 1).toString().slice(-2)}${currentYear.toString().slice(-2)}`;
+      const monthAbbr = now.toLocaleString('default', { month: 'short' }).toUpperCase();
+
+      // Generate coupon code
+      const generatedCoupon = `${firstName}DEVIT${financialYear}${monthAbbr}`;
+
+      if (couponCodeInput === generatedCoupon) {
+          let subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$', ''));
+          let discount = subtotal * 0.3; // 30% discount
+          let total = subtotal - discount;
+
+          document.getElementById('discount-row').style.display = 'flex';
+          document.getElementById('discount-amount').textContent = `$${discount.toFixed(0)}`;
           document.getElementById('total').textContent = `$${total.toFixed(0)}`;
-          // Save the discounted total to localStorage
           localStorage.setItem('cartTotal', total.toFixed(0));
-          alert('Coupon applied! 10% discount added.');
+          alert('Coupon applied! 30% discount added.');
       } else {
-          alert('Invalid coupon code.');
+          alert('Invalid coupon code. Please try again with a valid code.');
       }
   });
 
   // Process to checkout redirect
   document.getElementById('process-checkout').addEventListener('click', function () {
-      // Ensure cart data is saved before redirect
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');
       const cartItems = JSON.parse(localStorage.getItem('cartItems') || '{}');
       const total = document.getElementById('total').textContent.replace('$', '');

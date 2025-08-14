@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Edit Profile - Bootstrap Only</title>
@@ -7,18 +8,10 @@
   <!-- Bootstrap CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-  <!-- Top Navigation -->
-  <nav class="container py-3">
-    <div class="row">
-      <div class="col-md-8">
-        <small class="text-muted">Home / My Account</small>
-      </div>
-      <div class="col-md-4 text-end">
-        <small class="text-muted">Welcome! <span class="text-danger">User</span></small>
-      </div>
-    </div>
-  </nav>
+  <!-- Top Navigation Placeholder -->
+  <div id="headerNew-placeholder" class="sticky-top"></div>
 
   <div class="container">
     <div class="row">
@@ -50,50 +43,281 @@
       <!-- Edit Profile -->
       <div class="col-md-9 mt-4">
         <h5 class="mb-4 text-danger fw-bold">Edit Your Profile</h5>
-        <form>
+        <form id="profile-form">
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label">First Name</label>
-              <input type="text" class="form-control" value="">
+              <input type="text" class="form-control" id="first-name" required>
+              <div class="invalid-feedback">Please enter your first name.</div>
             </div>
             <div class="col-md-6">
               <label class="form-label">Last Name</label>
-              <input type="text" class="form-control" value="">
+              <input type="text" class="form-control" id="last-name" required>
+              <div class="invalid-feedback">Please enter your last name.</div>
             </div>
           </div>
           <div class="row mb-3">
             <div class="col-md-6">
               <label class="form-label">Email</label>
-              <input type="email" class="form-control" value="">
+              <input type="email" class="form-control" id="email" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
             </div>
             <div class="col-md-6">
+              <label class="form-label">Mobile Number</label>
+              <input type="text" class="form-control" id="mobile-number" required>
+              <div class="invalid-feedback">Please enter a valid mobile number.</div>
+
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-6">
+
+              <label class="form-label">Gender</label>
+              <div class="d-flex flex-wrap gap-3">
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" name="gender" id="male" value="male" required>
+                  <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" name="gender" id="female" value="female">
+                  <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" name="gender" id="other" value="other">
+                  <label class="form-check-label" for="other">Other</label>
+                </div>
+              </div>
+
+
+              <div class="invalid-feedback">Please select a gender.</div>
+            </div>
+            <div class="mb-3 col-6">
               <label class="form-label">Address</label>
-              <input type="text" class="form-control" value="">
+              <input type="text" class="form-control" id="address" required>
+              <div class="invalid-feedback">Please enter your address.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Interest</label>
+            <div class="d-flex flex-wrap gap-3">
+
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="interest" id="gaming" value="Gaming">
+                <label class="form-check-label" for="gaming">Gaming</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="interest" id="mobiles" value="Mobiles">
+                <label class="form-check-label" for="mobiles">Mobiles</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="interest" id="laptop" value="Laptop">
+                <label class="form-check-label" for="laptop">Laptop</label>
+              </div>
+              <div class="invalid-feedback">Please select at least one interest.</div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <label class="form-label">Country</label>
+              <select class="form-select" id="country" required>
+                <option value="">Select Country</option>
+                <option value="US">United States</option>
+                <option value="IN">India</option>
+                <option value="UK">United Kingdom</option>
+              </select>
+              <div class="invalid-feedback">Please select a country.</div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">State</label>
+              <select class="form-select" id="state" required>
+                <option value="">Select State</option>
+                <option value="CA">California</option>
+                <option value="TX">Texas</option>
+                <option value="MH">Maharashtra</option>
+              </select>
+              <div class="invalid-feedback">Please select a state.</div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">City</label>
+              <select class="form-select" id="city" required>
+                <option value="">Select City</option>
+                <option value="LA">Los Angeles</option>
+                <option value="Houston">Houston</option>
+                <option value="Mumbai">Mumbai</option>
+              </select>
+              <div class="invalid-feedback">Please select a city.</div>
             </div>
           </div>
           <div class="mb-3">
             <span class="fw-bold">Password Changes</span>
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" placeholder="Current Passwod">
+            <label class="form-label">Current Password</label>
+            <input type="password" class="form-control" id="current-password" placeholder="Current Password">
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" placeholder="New Passwod">
+            <label class="form-label">New Password</label>
+            <input type="password" class="form-control" id="new-password" placeholder="New Password">
+            <div class="invalid-feedback">Please enter a new password.</div>
           </div>
           <div class="mb-4">
-            <input type="password" class="form-control" placeholder="Confirm New Passwod">
+            <label class="form-label">Confirm New Password</label>
+            <input type="password" class="form-control" id="confirm-password" placeholder="Confirm New Password">
+            <div class="invalid-feedback">Passwords do not match.</div>
           </div>
           <div class="d-flex justify-content-end gap-2">
-            <button type="button" class="btn btn-link text-secondary">Cancel</button>
-            <button type="submit" class="btn btn-danger">Save Changes</button>
+            <button type="button" class="btn btn-link text-secondary" id="cancel-btn">Cancel</button>
+            <button type="submit" class="btn btn-danger" id="save-btn">Save Changes</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  
-  <!-- Bootstrap JS (optional) -->
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Ensure DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      // Fetch and insert header
+      fetch('headerNew.html')
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to fetch headerNew.html: ${response.statusText}`);
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('headerNew-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error fetching header:', error.message));
+
+      // Fetch and insert footer
+      fetch('footer.html')
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to fetch footer.html: ${response.statusText}`);
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error fetching footer:', error.message));
+
+      // Form validation and submission
+      const form = document.getElementById('profile-form');
+      const inputs = form.querySelectorAll('input[required], select[required]');
+      const saveBtn = document.getElementById('save-btn');
+      const cancelBtn = document.getElementById('cancel-btn');
+      const genderGroup = form.querySelectorAll('input[name="gender"]');
+      const interestGroup = form.querySelectorAll('input[name="interest"]');
+
+      function validateForm() {
+        let isValid = true;
+
+        // Check required inputs and selects
+        inputs.forEach(input => {
+          if (!input.value.trim()) {
+            input.classList.add('is-invalid');
+            isValid = false;
+          } else {
+            input.classList.remove('is-invalid');
+          }
+        });
+
+        // Validate gender (at least one selected)
+        if (!form.querySelector('input[name="gender"]:checked')) {
+          genderGroup.forEach(input => input.classList.add('is-invalid'));
+          isValid = false;
+        } else {
+          genderGroup.forEach(input => input.classList.remove('is-invalid'));
+        }
+
+        // Validate interest (at least one selected)
+        if (!form.querySelector('input[name="interest"]:checked')) {
+          interestGroup.forEach(input => input.classList.add('is-invalid'));
+          isValid = false;
+        } else {
+          interestGroup.forEach(input => input.classList.remove('is-invalid'));
+        }
+
+        // Check mobile number (basic length validation)
+        const mobileNumber = document.getElementById('mobile-number').value;
+        if (mobileNumber && mobileNumber.length < 10) {
+          document.getElementById('mobile-number').classList.add('is-invalid');
+          isValid = false;
+        } else {
+          document.getElementById('mobile-number').classList.remove('is-invalid');
+        }
+
+        // Check password match
+        const newPassword = document.getElementById('new-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        if (newPassword && confirmPassword && newPassword !== confirmPassword) {
+          document.getElementById('new-password').classList.add('is-invalid');
+          document.getElementById('confirm-password').classList.add('is-invalid');
+          isValid = false;
+        } else {
+          document.getElementById('new-password').classList.remove('is-invalid');
+          document.getElementById('confirm-password').classList.remove('is-invalid');
+        }
+
+        return isValid;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (validateForm()) {
+          const updatedProfile = {
+            firstName: document.getElementById('first-name').value,
+            lastName: document.getElementById('last-name').value,
+            email: document.getElementById('email').value,
+            address: { address: document.getElementById('address').value },
+            gender: form.querySelector('input[name="gender"]:checked')?.value || '',
+            interest: Array.from(form.querySelectorAll('input[name="interest"]:checked')).map(cb => cb.value),
+            country: document.getElementById('country').value,
+            state: document.getElementById('state').value,
+            city: document.getElementById('city').value,
+            mobileNumber: document.getElementById('mobile-number').value
+          };
+          alert('Profile updated successfully!');
+          window.location.href = '../components/account.html';
+        }
+      });
+
+      cancelBtn.addEventListener('click', function () {
+        window.location.href = '../components/test-2.html';
+      });
+
+      // Real-time validation on input change
+      inputs.forEach(input => {
+        input.addEventListener('input', function () {
+          if (input.value.trim()) {
+            input.classList.remove('is-invalid');
+          }
+        });
+      });
+
+      // Real-time validation for gender
+      genderGroup.forEach(input => {
+        input.addEventListener('change', function () {
+          if (form.querySelector('input[name="gender"]:checked')) {
+            genderGroup.forEach(input => input.classList.remove('is-invalid'));
+          }
+        });
+      });
+
+      // Real-time validation for interest
+      interestGroup.forEach(input => {
+        input.addEventListener('change', function () {
+          if (form.querySelector('input[name="interest"]:checked')) {
+            interestGroup.forEach(input => input.classList.remove('is-invalid'));
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
-    
