@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <p></p>
+    <h1>Dom Manipulation using JQuery</h1>
+    <p></p>
+
+    <p></p>
+    <div class="row">
+    <div id="box3" class="border border-black col col-6">
+        <p></p>
+        <h3 id="h3"> This is inside the div tag inside the h3</h3>
+        <p>This are the text currently in the Div inside the p</p>
+        <button type="button" id="appbtn" class="btn btn-warning">Append</button>
+        <button type="button" id="prebtn" class="btn btn-info">Prepend</button>
+        <button type="button" id="wrapbtn" class="btn btn-warning">Wrap</button>
+        <button type="button" id="unwrapbtn" class="btn btn-info">Unwrap</button>
+
+        <p></p>
+    </div>
+    <div id="box3" class="border border-black col col-6">
+        <p></p>
+        <h3 id="h3to"> This is inside the div tag inside the h3</h3>
+        <p>This are the text currently in the Div inside the p</p>
+        <button type="button" id="apptobtn" class="btn btn-warning">Append To</button>
+        <button type="button" id="pretobtn" class="btn btn-info">Prepend To</button>
+        <button type="button" id="wrapall" class="btn btn-warning">Wrap All</button>
+        <button type="button" id="wrapinn" class="btn btn-info">Wrap Inner</button>
+
+        <p></p>
+    </div></div>
+    <p></p>
+    <div id="box4" class="border border-black">
+        <p></p>
+        <ul>
+
+            <li> Item 2</li>
+            <li> Item 3</li>
+            <li> Item 4</li>
+
+        </ul>
+        <button type="button" id="appbtn2" class="btn btn-warning">Append</button>
+        <button type="button" id="prebtn2" class="btn btn-info">Prepend</button>
+
+        <p></p>
+    </div>
+    <p></p>
+    <div id="box5-5" class="border border-black">
+        <p></p>
+        <div id="box5" class="border border-black">
+            <p></p>
+            <h3 id="abh"> This is inside the div tag inside the h3</h3>
+            <p>This are the text currently in the Div inside the p</p>
+            <button type="button" id="befbtn" class="btn btn-light">Before</button>
+            <button type="button" id="aftbtn" class="btn btn-dark">After</button>
+            <p></p>
+        </div>
+        <p></p>
+        <button type="button" id="remvbtn" class="btn btn-primary">Remove</button>
+        <button type="button" id="emptbtn" class="btn btn-secondary">Empty</button>
+        <p></p>
+    </div>
+    <p></p>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#appbtn').click(function () {
+                $('#h3').append('<h1>This is Append</h1>')
+            });
+            $('#prebtn').click(function () {
+                $('#h3').prepend('<h1>This is Prepend</h1>')
+            });
+            $('#apptobtn').click(function () {
+                $('<h1>This is Append To</h1>').appendTo('#h3to')
+            });
+            $('#pretobtn').click(function () {
+                $('<h1>This is Prepend To</h1>').prependTo('#h3to')
+            });
+            $('#appbtn2').click(function () {
+                $('ul').append('<li>This is Append</li>')
+            });
+            $('#prebtn2').click(function () {
+                $('ul').prepend('<li>This is Prepend</li>')
+            });
+            $('#befbtn').click(function () {
+                $('#abh').before('<h4>This is before</h4>')
+                $('body').before('<h4>This is before</h4>')
+            });
+            $('#aftbtn').click(function () {
+                $('#abh').after('<h4>This is after</h4>')
+                $('body').after('<h4>This is after</h4>')
+            });
+            $('#remvbtn').click(function () {
+                $('#box5').remove()
+            });
+            $('#emptbtn').click(function () {
+                $('#box5').empty()
+            });
+            $('#wrapbtn').click(function () {
+                $('#h3').wrap('<div class="text-danger"></div>')
+            });
+            $('#unwrapbtn').click(function () {
+                $('#h3').unwrap()
+            });
+            $('#wrapall').click(function () {
+                //it will pack all the matching selectorn into given content
+                $('#h3to').wrapAll('<div class="border border-danger text-danger"></div>')
+                // $('h3').wrapAll('<div class="border border-danger text-danger"></div>')
+                // $('div').wrapAll('<div class="border border-danger text-danger"></div>')
+                // $('p').wrapAll('<div class="border border-danger text-danger"></div>')
+            });
+            $('#wrapinn').click(function () {
+                // it only wraps the selector with given content 
+                $('#h3to').wrapInner('<a href="www.google.com" class="text-danger"></a>')
+            });
+
+        });
+    </script>
+</body>
+
+</html>

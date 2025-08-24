@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-black text-white">
+    <p></p>
+    <div id="box" class="box border border-white">
+        <h1 class="h1"> This is the content inside the h1</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, temporibus! Atque odio, perferendis
+            exercitationem laborum nesciunt similique recusandae ipsa illum eveniet dolorum ex quos error sunt eum saepe
+            totam autem cumque illo blanditiis. Iusto dolores doloremque velit voluptatibus, labore inventore facilis?
+            Non magni temporibus aliquid ab at maxime dolores assumenda.</p>
+            <button id="remove">Stop</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.box').on({
+                click: function () {
+                    $('.box').css('background-color', 'red')
+                },
+                dblclick: function () {
+                    $('.box').css('background-color', 'green')
+                },
+                contextmenu: function () {
+                    $('.box').css('background-color', 'blue')
+                },
+                mousedown: function () {
+                    $('.box').css('background-color', 'yellow')
+                },
+                mouseup: function () {
+                    $('.box').css('background-color', 'purple')
+                },
+                mouseenter: function () {
+                    $('.box').css('background-color', 'cyan')
+                },
+                mouseleave: function () {
+                    $('.box').css('background-color', 'pink')
+                },
+                mousemove: function () {
+                    $('.box').addClass("text-danger")
+                },
+                mouseover:function () { 
+                    $('.box').css('background-color', 'orabge')
+                },
+                mouseoout:function () { 
+                    $('.box').css('background-color', 'tan')
+                }
+            });
+            $('body').on("mouseover mouseoout",function() {
+                $(this).toggleClass("bg-black text-white")
+                console.log("first")
+            });
+            $('#remove').click(function(){
+                $('body').off("mouseover mouseoout")
+                $('.box').off("click dblclick contextmenu mousedown mouseup mouseenter mouseleave mousemove mouseover mouseoout")
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>

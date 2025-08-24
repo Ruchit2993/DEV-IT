@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-black text-white">
+    <p></p>
+    <h2 id="h2">This is the H2 tag</h2>
+    <div class="border border-white">
+        <p id="ptag">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae veritatis tempora esse aliquid modi dolor eos tempore repellendus sapiente hic? Magni voluptates placeat optio quaerat, voluptate cumque sed a repellendus eveniet ducimus rem odio, magnam rerum maxime adipisci voluptatibus. Modi error, inventore alias molestias blanditiis porro saepe hic veritatis ipsum.</p>
+        <br/>
+        <button id="clickbtn">Set value</button>
+    </div>
+    <br/><br/>
+    <div id="box" class="box border border-white">
+        <!-- <form  id="form">
+            <label for="">Name</label><input type="text" id="sname"><br/> <br/>
+            <label for="">Class</label><input type="text" id="sclass"><br/><br/> 
+            <label for="country">Country</label>
+            <select id="scountry">
+            <option value="india">India</option>
+            <option value="Pak">Pak</option>
+            <option value="Nep">Nep</option>
+            <option value="China">China</option>
+            </select>
+            <br/><br/>
+            <input type="submit" id="ssbit"></input>
+        </form> -->
+        <button id="adClass">Add Class</button>
+        <button id="reClass">Remove Class</button>
+        <button id="tgClass">Toggle Class</button>
+        <br/><br/>
+    </div>
+    <br/><br/>
+    <div class="border border-white" id="test"></div>
+
+    <script>
+        $(document).ready(function(){
+            
+            $("#adClass").click(function(){
+                $('h2,#ptag').addClass("text-danger border border-danger")
+                // $('body h2').attr("class","text-danger")
+                // $('body #ptag').html("New set text & <h4>HTML</h4>")
+            });
+            $("#reClass").click(function(){
+                $('h2,#ptag').removeClass("text-danger border border-danger")
+                // $('body h2').attr("class","text-danger")
+                // $('body #ptag').html("New set text & <h4>HTML</h4>")
+            });
+            $("#tgClass").click(function(){
+                $('body').toggleClass("bg-black text-white")
+                $('div').removeClass("border-white")
+                $('div').toggleClass("border-dark")
+                // $('body h2').attr("class","text-danger")
+                // $('body #ptag').html("New set text & <h4>HTML</h4>")
+            });
+            
+
+            
+    });
+    </script>
+</body>
+
+</html>

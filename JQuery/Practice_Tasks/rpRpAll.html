@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <p></p>
+    <h1>Dom Manipulation using JQuery</h1>
+    <p></p>
+    <div id="box" class="border border-black">
+        <h3> This is box</h3>
+        <p>This are the text currently in the Div inside the p</p>
+        <p></p>
+    </div>
+    <p></p>
+
+    <p></p>
+    <div id="box2" class="border border-black">
+        <p></p>
+        <h3> This is box2</h3>
+        <p>This are the text currently in the Div inside the p</p>
+        <p></p>
+    </div>
+    <p></p>
+        <div id="box5" class="border border-black">
+            <p></p>
+            <h3> This is box5</h3>
+            <p>This are the text currently in the Div inside the p</p>
+            <p></p>
+            <p></p>
+            <button type="button" id="repwith" class="btn btn-primary">Replace With</button>
+            <button type="button" id="repwith2" class="btn btn-primary">Replace With 2</button>
+            <button type="button" id="repall" class="btn btn-secondary">Replace All</button>
+            <p></p>
+        </div>
+
+    <p></p>
+    <script>
+        $(document).ready(function () {
+            $('#repwith').click(function () {
+                // $('#box p').replaceWith('<h4>This is done by Replace With</h4>')
+                $('#box p').replaceWith('his is done by Replace With') //this will work
+            });
+            $('#repwith2').click(function () {
+                $('#box p:nth-child(2)').replaceWith('<h4>This is done by Replace With 2</h4>')
+            });
+            $('#repall').click(function () {
+                // $('<h4>This is done by Replace All</h4>').replaceAll('#box p:nth-child(2)')
+                $('<>This is done by Replace All').replaceAll('#box p') //this will not work
+                // $('<span>This is done by Replace All</span>').replaceAll('#box p') //this will work
+            });
+        });
+    </script>
+</body>
+
+</html>
